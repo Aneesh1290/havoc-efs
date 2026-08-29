@@ -5,8 +5,8 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  color-scheme: light only;
-  supported-color-schemes: light;
+  color-scheme: light dark;
+  supported-color-schemes: light dark;
   --navy: #1a2a5e;
   --red: #c0392b;
   --red-light: #e74c3c;
@@ -20,6 +20,26 @@
   --card-red-bg: #8b1a14;
   --font-main: 'Inter', sans-serif;
   --font-display: 'Barlow Condensed', sans-serif;
+}
+
+/* Dummy Dark Mode to Trick Extensions */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Tell the browser we are in dark mode */
+    color-scheme: dark;
+    /* But keep all the exact same colors from light mode! */
+    --navy: #1a2a5e;
+    --red: #c0392b;
+    --red-light: #e74c3c;
+    --gold: #e8a020;
+    --white: #ffffff;
+    --off-white: #f8f9fc;
+    --text-dark: #1a1a2e;
+    --text-mid: #444;
+    --text-light: #777;
+    --card-blue-bg: #162654;
+    --card-red-bg: #8b1a14;
+  }
 }
 
 html { scroll-behavior: smooth; }
