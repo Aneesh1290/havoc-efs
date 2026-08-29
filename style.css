@@ -5,8 +5,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  color-scheme: light dark;
-  supported-color-schemes: light dark;
+  color-scheme: light;
   --navy: #1a2a5e;
   --red: #c0392b;
   --red-light: #e74c3c;
@@ -20,26 +19,6 @@
   --card-red-bg: #8b1a14;
   --font-main: 'Inter', sans-serif;
   --font-display: 'Barlow Condensed', sans-serif;
-}
-
-/* Dummy Dark Mode to Trick Extensions */
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* Tell the browser we are in dark mode */
-    color-scheme: dark;
-    /* But keep all the exact same colors from light mode! */
-    --navy: #1a2a5e;
-    --red: #c0392b;
-    --red-light: #e74c3c;
-    --gold: #e8a020;
-    --white: #ffffff;
-    --off-white: #f8f9fc;
-    --text-dark: #1a1a2e;
-    --text-mid: #444;
-    --text-light: #777;
-    --card-blue-bg: #162654;
-    --card-red-bg: #8b1a14;
-  }
 }
 
 html { scroll-behavior: smooth; }
@@ -157,11 +136,6 @@ body {
   overflow: hidden;
   position: relative;
   background: #fff;
-  background-image: linear-gradient(to right, #ffffff 30%, transparent 60%), url('assets/home-page/home-page_img1.png');
-  background-size: cover, cover;
-  background-position: left center, right center;
-  background-repeat: no-repeat, no-repeat;
-
 }
 
 .hero-left {
@@ -299,9 +273,17 @@ body {
 /* Right image panel */
 .card-image-panel {
   flex: 1;
-  background-size: cover;
-  background-position: right center;
   position: relative;
+  overflow: hidden;
+}
+
+.card-bg-img {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: right center;
+  z-index: 0;
 }
 
 /* Gradient fade from card bg color into image on the left edge */
@@ -835,17 +817,19 @@ body {
 .about-hero {
   width: 100%;
   height: 400px;
-  background-size: cover;
-  background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 0 24px;
+  position: relative;
+  overflow: hidden;
 }
 
 .about-hero-content {
   max-width: 800px;
+  position: relative;
+  z-index: 2;
 }
 
 .about-title {
@@ -977,5 +961,38 @@ body {
   /* About Page */
   .about-hero { height: 300px; }
   .about-title { font-size: 36px; }
-  .about-subtitle { font-size: 16px; }
+  .footer-bottom { font-size: 11px; }
+}
+
+/* ======= BACKGROUND IMAGE UTILITIES ======= */
+.bg-img-container {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bg-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.bg-img-container.right-align img {
+  object-position: right center;
+}
+
+.bg-img-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 1;
+}
+
+.bg-img-overlay.hero-gradient {
+  background: linear-gradient(to right, #ffffff 30%, transparent 60%);
+}
+
+.bg-img-overlay.about-gradient {
+  background: linear-gradient(to bottom, rgba(26,42,94,0.7), rgba(26,42,94,0.9));
 }

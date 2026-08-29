@@ -36,7 +36,11 @@
   </header>
 
   <!-- HERO -->
-  <section class="hero" id="hero" >
+  <section class="hero" id="hero">
+    <div class="bg-img-container right-align">
+      <img src="assets/home-page/home-page_img1.png" alt="Havoc Hero Background">
+      <div class="bg-img-overlay hero-gradient"></div>
+    </div>
     <div class="hero-left">
       <p class="hero-tagline">LEARN. <span class="navy">FLY.</span> <span class="red">RACE.</span> DREAM.</p>
       <h1 class="hero-title">TAKE OFF TOWARDS<br>YOUR PASSION</h1>
@@ -68,7 +72,9 @@
           </a>
         </div>
       </div>
-      <div class="card-image-panel" style="background-image: url('assets/home-page/aviation.png');"></div>
+      <div class="card-image-panel">
+        <img src="assets/home-page/aviation.png" class="card-bg-img" alt="Aviation Background">
+      </div>
     </div>
     <div class="card-racing">
       <div class="card-left-content">
@@ -94,7 +100,9 @@
           </a>
         </div>
       </div>
-      <div class="card-image-panel" style="background-image: url('assets/home-page/f1.png');"></div>
+      <div class="card-image-panel">
+        <img src="assets/home-page/f1.png" class="card-bg-img" alt="F1 Racing Background">
+      </div>
     </div>
   </section>
 
@@ -272,26 +280,6 @@
         </div>
       </div>
 
-      <div class="footer-newsletter">
-        <h4>BE THE FIRST TO KNOW</h4>
-        <p>Sign up to our newsletter to stay informed</p>
-        <form class="newsletter-form" id="newsletter-form" onsubmit="return false;">
-          <input type="email" placeholder="Your email address" class="newsletter-input" id="newsletter-email" />
-          <button type="submit" class="btn-subscribe" id="btn-subscribe">
-            SUBSCRIBE NOW
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-          </button>
-        </form>
-        <div class="footer-decor">
-          <svg viewBox="0 0 300 60" width="300" height="60">
-            <path d="M10 50 Q80 15 150 35 Q220 52 290 15" stroke="#c0392b" stroke-width="1.5" fill="none" stroke-dasharray="6 4" opacity="0.6"/>
-            <g transform="translate(278,18) rotate(-30)" fill="none" stroke="#c0392b" stroke-width="1.5">
-              <polygon points="0,-6 6,6 0,3 -6,6"/>
-              <line x1="0" y1="3" x2="0" y2="10"/>
-            </g>
-          </svg>
-        </div>
-      </div>
 
       <div class="footer-kid">
         <img src="assets/home-page/boy-corner.png" alt="Young pilot" />
