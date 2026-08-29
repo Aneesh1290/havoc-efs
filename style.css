@@ -74,6 +74,12 @@ body {
   margin-left: -72px;
 }
 
+/* Prevent Dark Reader from inverting the logo */
+html[data-darkreader-mode] .nav-logo-img,
+html[data-darkreader-scheme="dark"] .nav-logo-img {
+  filter: invert(1) hue-rotate(180deg) !important;
+}
+
 
 
 .nav-links {
