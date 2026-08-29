@@ -5,6 +5,8 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
+  color-scheme: light;
+  supported-color-schemes: light;
   --navy: #1a2a5e;
   --red: #c0392b;
   --red-light: #e74c3c;
