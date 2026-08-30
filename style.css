@@ -926,10 +926,8 @@ html[data-darkreader-scheme="dark"] .nav-logo-img {
   .btn-login { position: absolute; right: 16px; padding: 6px 12px; font-size: 11px; }
 
   /* Hero */
-  .hero {
-    background-image: linear-gradient(to bottom, rgba(255,255,255,1) 40%, rgba(255,255,255,0.8) 60%, transparent 100%), url('assets/home-page/home-page_img1.png');
-    background-size: cover, cover;
-    background-position: top center, center;
+  .bg-img-overlay.hero-gradient {
+    background: linear-gradient(to bottom, rgba(255,255,255,1) 40%, rgba(255,255,255,0.8) 60%, transparent 100%);
   }
   .hero-left { padding: 30px 16px 200px 16px; }
   .hero-title { font-size: 36px; margin-bottom: 16px; }
