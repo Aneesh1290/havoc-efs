@@ -67,7 +67,7 @@ body {
 }
 
 .nav-logo-img {
-  height: 100px;
+  height: 160px;
   width: auto;
   display: block;
   object-fit: contain;
@@ -921,7 +921,7 @@ html[data-darkreader-scheme="dark"] .nav-logo-img {
 
 @media (max-width: 768px) {
   .nav-inner { min-height: 80px; justify-content: center; position: relative; }
-  .nav-logo-img { height: 65px; margin-left: 0; }
+  .nav-logo-img { height: 100px; margin-left: 0; }
   .nav-links { display: none; }
   .btn-login { position: absolute; right: 16px; padding: 6px 12px; font-size: 11px; }
 
