@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Havoc EFS – Havoc Early Fun School | Aviation & Motorsport for Kids</title>
-  <meta name="description" content="Havoc Early Fun School – Aviation & Motorsport education for young minds aged 8–16. Learn aeromodelling, RC flying, F1 & GT sim racing with expert mentors." />
+  <title>About Us – Havoc EFS | Havoc Early Fun School</title>
+  <meta name="description" content="About Havoc Early Fun School – Inspiring the next generation of pilots and racers. Aviation, RC flying & F1 sim racing education for kids aged 8–16." />
   <meta name="darkreader-lock" />
   <meta name="color-scheme" content="light dark" />
   <meta name="supported-color-schemes" content="light dark" />
@@ -19,31 +19,76 @@
   <header class="navbar">
     <div class="nav-inner">
       <div class="nav-logo">
-        <a href="#" id="logo-link">
+        <a href="index.html" id="logo-link">
           <img src="assets/home-page/logo.svg" alt="Havoc EFS – Havoc Early Fun School" class="nav-logo-img" />
         </a>
       </div>
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
       <nav class="nav-links">
-        <a href="/" class="nav-link" id="nav-home">Home</a>
-        <a href="/about" class="nav-link active" id="nav-about">About</a>
-        <a href="#" class="nav-link" id="nav-courses">Courses</a>
-        <a href="#" class="nav-link" id="nav-events">Events</a>
-        <a href="#" class="nav-link" id="nav-team">Team</a>
-        <a href="#" class="nav-link" id="nav-news">News</a>
-        <a href="#" class="nav-link" id="nav-contact">Contact</a>
+        <a href="index.html" class="nav-link" id="nav-home">Home</a>
+        <a href="about.html" class="nav-link active" id="nav-about">About</a>
+        <a href="courses.html" class="nav-link" id="nav-courses">Courses</a>
+        <a href="contact.html" class="nav-link" id="nav-contact">Contact</a>
       </nav>
     </div>
   </header>
 
-  <!-- ABOUT HERO -->
-  <section class="about-hero">
-    <div class="bg-img-container">
-      <img src="assets/about-page/about-page-main.png" alt="About Havoc Hero">
-      <div class="bg-img-overlay about-gradient"></div>
+  <!-- ABOUT HERO – Split layout -->
+  <section class="about-split-hero">
+    <!-- Left: Text -->
+    <div class="about-split-left">
+      <!-- Decorative elements -->
+      <div class="about-decor-plus about-decor-plus-1">+</div>
+      <div class="about-decor-plus about-decor-plus-2">+</div>
+      <div class="about-decor-plane">
+        <svg width="140" height="90" viewBox="0 0 180 110" fill="none">
+          <path d="M20 90 Q 60 10, 130 40" stroke="#1a2a5e" stroke-width="1.5" stroke-dasharray="6 5" fill="none" opacity="0.3"/>
+          <!-- Paper plane -->
+          <g transform="translate(120, 28) rotate(20)">
+            <path d="M0 0 L24 10 L0 20 Z" fill="none" stroke="#1a2a5e" stroke-width="1.5" opacity="0.6"/>
+            <path d="M0 20 L8 14 L24 10" fill="none" stroke="#1a2a5e" stroke-width="1.5" opacity="0.6"/>
+          </g>
+        </svg>
+      </div>
+
+      <h1 class="about-split-title">ABOUT US</h1>
+      <p class="about-split-subtitle">Inspiring the next generation<br>of pilots and racers.</p>
+      <p class="about-split-body">At Havoc EFS, we believe every child has the potential to achieve greatness. We make the skies and the tracks more accessible, exciting, and confidence to make their dreams take flight.</p>
     </div>
-    <div class="about-hero-content">
-      <h1 class="about-title">ABOUT HAVOC EFS</h1>
-      <p class="about-subtitle">Empowering the next generation through Aviation and Motorsport.</p>
+
+    <!-- Right: Image with diagonal clip -->
+    <div class="about-split-right">
+      <img src="assets/about-page/about-page-main.png" alt="Havoc EFS Kids" class="about-split-img" />
+      <div class="about-split-red-bar"></div>
+    </div>
+  </section>
+
+  <!-- MISSION & VISION -->
+  <section class="about-mv-section">
+    <div class="about-mv-card">
+      <div class="about-mv-icon navy-bg">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+      </div>
+      <h3 class="about-mv-title">OUR MISSION</h3>
+      <p class="about-mv-text">To inspire and educate young aspirants through hands-on aviation and motorsport training, building confidence, technical skills, and a genuine passion for flight and racing from an early age.</p>
+    </div>
+
+    <div class="about-mv-card">
+      <div class="about-mv-icon red-bg">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+      </div>
+      <h3 class="about-mv-title red-text">OUR VISION</h3>
+      <p class="about-mv-text">To become India's leading youth aviation and motorsport education platform — where every child gets the opportunity to build, fly, race, and dream without limits.</p>
+    </div>
+
+    <div class="about-mv-card">
+      <div class="about-mv-icon navy-bg">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <h3 class="about-mv-title">OUR VALUES</h3>
+      <p class="about-mv-text">Safety first, curiosity always. We foster a structured, inclusive, and encouraging environment where young minds grow through exploration, teamwork, and practical achievement.</p>
     </div>
   </section>
 
@@ -75,7 +120,7 @@
       </div>
       <div class="pillar-text">
         <h3>EXPERIENCE</h3>
-        <p>Thrill in the real-world application of your passion through competitions, events, and actual track & flight time.</p>
+        <p>Thrill in the real-world application of your passion through competitions, events, and actual track &amp; flight time.</p>
       </div>
     </div>
   </section>
@@ -104,7 +149,6 @@
           <a href="#" class="social-icon" id="social-li" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
         </div>
       </div>
-
 
       <div class="footer-kid">
         <img src="assets/home-page/boy-corner.png" alt="Young pilot" />

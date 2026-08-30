@@ -23,6 +23,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Mobile Menu Toggle
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const navLinks = document.querySelector('.nav-links');
+  if (mobileMenuBtn && navLinks) {
+    mobileMenuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+  }
+
   // Navbar link active on click
   document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', function () {
