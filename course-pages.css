@@ -867,3 +867,68 @@ details[open] .acc-title {
   /* bottom-cta */
   .cta-left h2 { font-size: 22px; }
 }
+
+/* =========================================
+   DARK THEME SPECIFIC (RC CARS)
+   ========================================= */
+.dark-theme {
+  background-color: #111111;
+  color: #f8fafc;
+}
+
+.dark-bg { background-color: #111111; }
+.dark-nav { background-color: #0a0a0a; border-bottom: 1px solid #333; }
+.dark-section { background-color: #111111; color: #f8fafc; }
+.dark-card { background-color: #1a1a1a; border-radius: 8px; padding: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+.dark-feature-card { background-color: #1a1a1a; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+.dfc-img { height: 140px; overflow: hidden; }
+.dfc-img img { width: 100%; height: 100%; object-fit: cover; }
+.dfc-content { padding: 15px; }
+.dfc-content h4 { font-size: 16px; margin-bottom: 8px; }
+.dfc-content p { font-size: 13px; margin: 0; }
+
+.text-white { color: #ffffff !important; }
+.text-gray { color: #a0aec0 !important; }
+.text-red { color: #e53e3e !important; }
+.text-yellow { color: #ecc94b !important; }
+.text-orange { color: #ed8936 !important; }
+.red-bg { background-color: #e53e3e !important; color: #fff !important; }
+.red-checks li::before { color: #e53e3e; }
+.border-white { border-color: #fff !important; }
+.border-gray { border-color: #4a5568 !important; }
+
+/* Grids */
+.grid-5-col { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+.grid-4-col { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.grid-3-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.icon-grid-7 { display: grid; grid-template-columns: repeat(7, 1fr); gap: 15px; }
+
+/* Timeline Overrides for Dark Mode */
+.dark-timeline .tl-step { flex: 1; text-align: center; display: flex; flex-direction: column; align-items: center; position: relative; z-index: 2; }
+.dark-timeline .tl-connector { flex: 1; height: 2px; background-color: #333; margin-top: 15px; border-top: 2px dashed #444; background: none; }
+.dark-timeline .tl-circle { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; margin-bottom: 15px; z-index: 2; }
+.dark-timeline .tl-icon-circle { width: 45px; height: 45px; border-radius: 50%; border: 2px solid; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; background-color: #111; z-index: 2; }
+.dark-timeline .tl-title { font-size: 14px; font-weight: 700; margin-bottom: 8px; text-transform: uppercase; }
+.dark-timeline .tl-desc { font-size: 12px; margin: 0; line-height: 1.4; }
+
+/* Icon Item */
+.icon-item { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.icon-circle { width: 60px; height: 60px; border-radius: 50%; border: 2px solid; display: flex; align-items: center; justify-content: center; }
+
+/* Skill Card */
+.skill-card { display: flex; flex-direction: column; align-items: center; text-align: center; }
+
+/* Mobile adjustments */
+@media (max-width: 991px) {
+  .grid-5-col, .grid-4-col { grid-template-columns: repeat(2, 1fr); }
+  .grid-3-col { grid-template-columns: repeat(2, 1fr); }
+  .icon-grid-7 { grid-template-columns: repeat(4, 1fr); }
+  .split-layout { flex-direction: column; }
+}
+
+@media (max-width: 575px) {
+  .grid-5-col, .grid-4-col, .grid-3-col { grid-template-columns: 1fr; }
+  .icon-grid-7 { grid-template-columns: repeat(2, 1fr); }
+  .dark-timeline { flex-direction: column; }
+  .dark-timeline .tl-connector { width: 2px; height: 30px; margin: 0; margin-bottom: 15px; border-left: 2px dashed #444; border-top: none; }
+}
