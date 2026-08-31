@@ -111,6 +111,16 @@
   padding: 60px 24px;
 }
 
+/* GRIDS */
+.grid-4-col {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.grid-2-col {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
 .cs-header {
   font-family: var(--font-display);
   color: var(--red);
@@ -724,6 +734,9 @@ details[open] .acc-title {
     grid-template-columns: 1fr;
   }
   .bottom-grid {
+    grid-template-columns: 1fr;
+  }
+  .grid-4-col, .grid-2-col {
     grid-template-columns: 1fr;
   }
   .img-grid-2x3 {
