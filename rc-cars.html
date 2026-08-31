@@ -10,6 +10,45 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="course-pages.css" />
+  <style>
+    /* Custom Grids for RC Cars Page */
+    .grid-5-col { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+    .grid-4-col { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .grid-3-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .grid-6-col { display: grid; grid-template-columns: repeat(6, 1fr); gap: 15px; }
+    .icon-grid-7 { display: flex; justify-content: space-between; gap: 15px; flex-wrap: wrap; }
+    
+    .light-card { background-color: #f8f9fc; border-radius: 8px; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; }
+    .light-feature-card { background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; display: flex; flex-direction: column; }
+    .lfc-img { height: 140px; overflow: hidden; }
+    .lfc-img img { width: 100%; height: 100%; object-fit: cover; }
+    .lfc-content { padding: 15px; flex: 1; }
+    
+    .mini-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    
+    .tl-horizontal { display: flex; justify-content: space-between; align-items: flex-start; position: relative; margin-top: 40px; }
+    .tl-horizontal::before { content: ''; position: absolute; top: 25px; left: 50px; right: 50px; height: 2px; background: #e2e8f0; z-index: 0; border-top: 2px dashed #cbd5e1; }
+    .tl-step-col { flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; z-index: 1; padding: 0 10px; }
+    .tl-icon-wrap { width: 50px; height: 50px; border-radius: 50%; background: #fff; border: 2px solid var(--navy); display: flex; align-items: center; justify-content: center; margin-bottom: 15px; }
+    
+    .icon-circle-lg { width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--navy); display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; }
+    
+    @media (max-width: 1200px) {
+      .grid-5-col { grid-template-columns: repeat(3, 1fr); }
+      .grid-6-col { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 991px) {
+      .grid-5-col, .grid-4-col, .grid-6-col { grid-template-columns: repeat(2, 1fr); }
+      .grid-3-col { grid-template-columns: repeat(2, 1fr); }
+      .tl-horizontal { flex-direction: column; align-items: flex-start; }
+      .tl-horizontal::before { display: none; }
+      .tl-step-col { flex-direction: row; text-align: left; align-items: flex-start; margin-bottom: 20px; }
+      .tl-icon-wrap { margin-right: 15px; margin-bottom: 0; }
+    }
+    @media (max-width: 575px) {
+      .grid-5-col, .grid-4-col, .grid-3-col, .grid-6-col { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body class="course-page-body rc-cars-page">
 
@@ -68,255 +107,194 @@
       <p>Students learn how different RC cars work, how their mechanical and electronic components fit together, how vehicle setup affects handling and performance, and how to control the vehicle in a track environment.</p>
     </div>
     <div class="cs-right" style="flex: 1.8;">
-      <div class="white-card p-6" style="background:#f8f9fc; border-radius:12px; padding:30px;">
-        <div style="display:flex; gap: 20px;">
-          <div style="flex:1;">
-            <p class="cs-right-intro navy-text mb-4" style="font-size:14px; font-weight:600;">The program provides practical exposure to:</p>
-            <div class="split-list">
-              <ul class="cs-check-list" style="font-size:13px;">
-                <li>RC Car Assembly</li>
-                <li>Mechanical Components</li>
-                <li>Vehicle Setup</li>
-                <li>Electronics</li>
-                <li>Power Systems</li>
-                <li>Steering & Suspension</li>
-              </ul>
-              <ul class="cs-check-list" style="font-size:13px;">
-                <li>Transmitter Configuration</li>
-                <li>Maintenance</li>
-                <li>Troubleshooting</li>
-                <li>Driving Techniques</li>
-                <li>Track Practice</li>
-              </ul>
-            </div>
+      <div class="white-card p-6" style="background:#fff; border-radius:12px; padding:30px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); border: 1px solid #e2e8f0;">
+        <p class="cs-right-intro" style="margin-bottom:15px; font-weight:600;">Students gain hands-on exposure to:</p>
+        <div class="split-list">
+          <ul class="cs-check-list">
+            <li>RC Car Assembly</li>
+            <li>Mechanical Components</li>
+            <li>Vehicle Setup</li>
+            <li>Electronics</li>
+            <li>Power Systems</li>
+            <li>Steering & Suspension</li>
+          </ul>
+          <ul class="cs-check-list">
+            <li>Transmitter Configuration</li>
+            <li>Maintenance</li>
+            <li>Troubleshooting</li>
+            <li>Driving Techniques</li>
+            <li>Track Practice</li>
+          </ul>
+        </div>
+        <div class="info-box box-grey" style="margin-top:20px;">
+          <div class="ib-icon target-icon text-red">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
           </div>
-          <div style="flex:0.6;">
-            <div class="info-box box-grey" style="height:100%; display:flex; flex-direction:column; justify-content:center;">
-              <div class="ib-icon target-icon text-navy mb-2" style="margin:0 auto;">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
-              </div>
-              <div class="ib-text text-center" style="font-size:12px;">The objective is to help students understand how vehicle setup can influence handling and performance.</div>
-            </div>
-          </div>
+          <div class="ib-text">Understand how vehicle setup can influence handling and performance.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 02 EXPLORE DIFFERENT RC CARS -->
+  <!-- 02 EXPLORE DIFFERENT RC CARS (4-COL) -->
   <section class="course-section">
     <h3 class="cs-header"><span class="cs-num">02</span> EXPLORE DIFFERENT RC CARS</h3>
     <h2 class="cs-title">Different Cars. Different Power Systems.</h2>
-    <p class="mb-5">Students can be introduced to different categories of RC cars according to their age, experience and skill level.</p>
     
-    <div style="display:flex; flex-direction:column; gap:10px;">
-      <div style="border:1px solid #e2e8f0; border-radius:8px; padding:15px 20px; display:flex; align-items:center; gap:15px; background:#fff;">
-        <span style="font-size:20px;">⚡</span>
-        <div>
-          <h4 class="navy-text" style="margin:0; font-size:16px;">Electric RC Cars</h4>
-          <p style="margin:0; font-size:14px; color:#64748b;">Explore battery-powered RC vehicles and their electrical power systems.</p>
+    <div class="grid-4-col mt-4">
+      <div class="light-feature-card">
+        <div class="lfc-img"><img src="assets/simulator/electric-rc.png" alt="Electric RC"></div>
+        <div class="lfc-content">
+          <h4 class="navy-text mb-2">⚡ Electric RC Cars</h4>
+          <p style="font-size:13px; color:#64748b; margin:0;">Explore battery-powered RC vehicles and their electrical power systems.</p>
         </div>
       </div>
-      <div style="border:1px solid #e2e8f0; border-radius:8px; padding:15px 20px; display:flex; align-items:center; gap:15px; background:#fff;">
-        <span style="font-size:20px;">🔥</span>
-        <div>
-          <h4 class="navy-text" style="margin:0; font-size:16px;">Nitro RC Cars</h4>
-          <p style="margin:0; font-size:14px; color:#64748b;">Understand RC cars powered by nitro-fuel engines and their associated systems.</p>
+      <div class="light-feature-card">
+        <div class="lfc-img"><img src="assets/simulator/nitro-rc.png" alt="Nitro RC"></div>
+        <div class="lfc-content">
+          <h4 class="navy-text mb-2">🔥 Nitro RC Cars</h4>
+          <p style="font-size:13px; color:#64748b; margin:0;">Understand RC cars powered by nitro-fuel engines and their associated systems.</p>
         </div>
       </div>
-      <div style="border:1px solid #e2e8f0; border-radius:8px; padding:15px 20px; display:flex; align-items:center; gap:15px; background:#fff;">
-        <span style="font-size:20px;">⛽</span>
-        <div>
-          <h4 class="navy-text" style="margin:0; font-size:16px;">Gas / Petrol RC Cars</h4>
-          <p style="margin:0; font-size:14px; color:#64748b;">Explore larger petrol-powered RC vehicles and their mechanical power systems.</p>
+      <div class="light-feature-card">
+        <div class="lfc-img"><img src="assets/simulator/gas-rc.png" alt="Gas RC"></div>
+        <div class="lfc-content">
+          <h4 class="navy-text mb-2">⛽ Gas / Petrol RC Cars</h4>
+          <p style="font-size:13px; color:#64748b; margin:0;">Explore larger petrol-powered RC vehicles and their mechanical power systems.</p>
         </div>
       </div>
-      <div style="border:1px solid #e2e8f0; border-radius:8px; padding:15px 20px; display:flex; align-items:center; gap:15px; background:#fff;">
-        <span style="font-size:20px;">🛠️</span>
-        <div>
-          <h4 class="navy-text" style="margin:0; font-size:16px;">DIY & Ready Kits</h4>
-          <p style="margin:0; font-size:14px; color:#64748b;">Learn to assemble commercially available RC car kits and understand the components.</p>
+      <div class="light-feature-card">
+        <div class="lfc-img"><img src="assets/simulator/diy-rc.png" alt="DIY RC"></div>
+        <div class="lfc-content">
+          <h4 class="navy-text mb-2">🛠️ DIY & Ready Kits</h4>
+          <p style="font-size:13px; color:#64748b; margin:0;">Learn to assemble commercially available RC car kits and understand components.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 03 - 07 TOPIC ROWS -->
-  <section class="course-section">
-    <div style="display:flex; flex-direction:column; gap:20px;">
-      
+  <!-- 03-07 TOPICS (5-COL GRID) -->
+  <section class="course-section" style="background:#f8f9fc; padding:40px; border-radius:12px; margin-top:20px;">
+    <div class="grid-5-col">
       <!-- 03 -->
-      <div style="background:#f8f9fc; border-radius:8px; padding:25px; display:flex; gap:30px; align-items:flex-start;">
-        <div style="flex:1;">
-          <h3 class="cs-header" style="margin-bottom:10px;"><span class="cs-num" style="background:#e53e3e; color:#fff;">03</span> BUILDING & ASSEMBLY</h3>
-          <h4 class="navy-text" style="font-size:18px;">Build Your Understanding From the Ground Up</h4>
-        </div>
-        <div style="flex:1;">
-          <img src="assets/simulator/build-rc.png" alt="Building RC Cars" style="width:100%; border-radius:8px; max-height:120px; object-fit:cover;">
-        </div>
-        <div style="flex:1.5;">
-          <ul class="cs-check-list" style="font-size:13px;">
-            <li>DIY & Ready Kit Assembly</li>
-            <li>Chassis & Mechanical Components</li>
-            <li>Suspension & Steering</li>
-            <li>Motor / Engine & Power Systems</li>
-            <li>Electronics Installation</li>
-          </ul>
-        </div>
+      <div class="light-card" style="display:flex; flex-direction:column; padding:15px; border-top:3px solid #e53e3e;">
+        <h3 class="cs-header" style="font-size:11px; margin-bottom:5px;"><span class="cs-num" style="background:#e53e3e; color:#fff; width:20px; height:20px; font-size:10px;">03</span> BUILDING & ASSEMBLY</h3>
+        <h4 class="navy-text mb-3" style="font-size:15px; line-height:1.2; min-height:40px;">Build Your Understanding From the Ground Up</h4>
+        <img src="assets/simulator/build-rc.png" alt="Build" style="width:100%; border-radius:4px; height:90px; object-fit:cover; margin-bottom:15px;">
+        <ul class="cs-check-list mini-list" style="flex:1;">
+          <li>DIY & Ready Kit Assembly</li>
+          <li>Chassis & Mechanical Components</li>
+          <li>Suspension & Steering</li>
+          <li>Motor / Engine & Power Systems</li>
+          <li>Electronics Installation</li>
+        </ul>
       </div>
-
       <!-- 04 -->
-      <div style="background:#f8f9fc; border-radius:8px; padding:25px; display:flex; gap:30px; align-items:flex-start;">
-        <div style="flex:1;">
-          <h3 class="cs-header" style="margin-bottom:10px;"><span class="cs-num" style="background:#e53e3e; color:#fff;">04</span> VEHICLE SETUP & CONFIGURATION</h3>
-          <h4 class="navy-text" style="font-size:18px;">Tune the Car. Understand the Difference.</h4>
-        </div>
-        <div style="flex:1;">
-          <img src="assets/simulator/setup-rc.png" alt="RC Setup" style="width:100%; border-radius:8px; max-height:120px; object-fit:cover;">
-        </div>
-        <div style="flex:1.5; display:flex; gap:20px;">
-          <ul class="cs-check-list" style="font-size:13px; flex:1;">
-            <li>Steering Configuration</li>
-            <li>Suspension & Steering</li>
-            <li>Motor / Engine & Power Systems</li>
-            <li>Electronics Installation</li>
-            <li>Transmitter & Receiver Setup</li>
-          </ul>
-          <div style="flex:1;">
-            <p style="font-size:12px; color:#64748b;">Vehicle setup can influence handling and performance.</p>
-          </div>
+      <div class="light-card" style="display:flex; flex-direction:column; padding:15px; border-top:3px solid #e53e3e;">
+        <h3 class="cs-header" style="font-size:11px; margin-bottom:5px;"><span class="cs-num" style="background:#e53e3e; color:#fff; width:20px; height:20px; font-size:10px;">04</span> VEHICLE SETUP & CONFIGURATION</h3>
+        <h4 class="navy-text mb-3" style="font-size:15px; line-height:1.2; min-height:40px;">Tune the Car. Understand the Difference.</h4>
+        <img src="assets/simulator/setup-rc.png" alt="Setup" style="width:100%; border-radius:4px; height:90px; object-fit:cover; margin-bottom:15px;">
+        <ul class="cs-check-list mini-list" style="flex:1;">
+          <li>Steering Configuration</li>
+          <li>Suspension & Steering</li>
+          <li>Motor / Engine & Power Systems</li>
+          <li>Electronics Installation</li>
+          <li>Transmitter & Receiver Setup</li>
+        </ul>
+        <div class="info-box box-grey" style="padding:10px; margin-top:10px;">
+          <div class="ib-text" style="font-size:11px; line-height:1.3;">Vehicle setup can influence handling and performance.</div>
         </div>
       </div>
-
       <!-- 05 -->
-      <div style="background:#f8f9fc; border-radius:8px; padding:25px; display:flex; gap:30px; align-items:flex-start;">
-        <div style="flex:1;">
-          <h3 class="cs-header" style="margin-bottom:10px;"><span class="cs-num" style="background:#e53e3e; color:#fff;">05</span> RC ELECTRONICS</h3>
-          <h4 class="navy-text" style="font-size:18px;">Understand the Systems Behind the Car</h4>
-        </div>
-        <div style="flex:1;">
-          <img src="assets/simulator/electronics-rc.png" alt="RC Electronics" style="width:100%; border-radius:8px; max-height:120px; object-fit:cover;">
-        </div>
-        <div style="flex:1.5; display:flex; gap:20px;">
-          <ul class="cs-check-list" style="font-size:13px; flex:1;">
-            <li>Electronics Installation</li>
-            <li>Transmitter & Receiver Setup</li>
-            <li>Steering Configuration</li>
-            <li>Power Systems</li>
-          </ul>
-          <div style="flex:1;">
-            <p style="font-size:12px; color:#64748b;">Understand how electronic components work with mechanical systems.</p>
-          </div>
+      <div class="light-card" style="display:flex; flex-direction:column; padding:15px; border-top:3px solid #e53e3e;">
+        <h3 class="cs-header" style="font-size:11px; margin-bottom:5px;"><span class="cs-num" style="background:#e53e3e; color:#fff; width:20px; height:20px; font-size:10px;">05</span> RC ELECTRONICS</h3>
+        <h4 class="navy-text mb-3" style="font-size:15px; line-height:1.2; min-height:40px;">Understand the Systems Behind the Car</h4>
+        <img src="assets/simulator/electronics-rc.png" alt="Electronics" style="width:100%; border-radius:4px; height:90px; object-fit:cover; margin-bottom:15px;">
+        <ul class="cs-check-list mini-list" style="flex:1;">
+          <li>Electronics Installation</li>
+          <li>Transmitter & Receiver Setup</li>
+          <li>Steering Configuration</li>
+          <li>Power Systems</li>
+        </ul>
+        <div class="info-box box-grey" style="padding:10px; margin-top:10px;">
+          <div class="ib-text" style="font-size:11px; line-height:1.3;">Understand how electronic components work with mechanical systems.</div>
         </div>
       </div>
-
       <!-- 06 -->
-      <div style="background:#f8f9fc; border-radius:8px; padding:25px; display:flex; gap:30px; align-items:flex-start;">
-        <div style="flex:1;">
-          <h3 class="cs-header" style="margin-bottom:10px;"><span class="cs-num" style="background:#e53e3e; color:#fff;">06</span> MAINTENANCE & TROUBLESHOOTING</h3>
-          <h4 class="navy-text" style="font-size:18px;">Learn to Look After Your Machine</h4>
-        </div>
-        <div style="flex:1;">
-          <img src="assets/simulator/maintenance-rc.png" alt="RC Maintenance" style="width:100%; border-radius:8px; max-height:120px; object-fit:cover;">
-        </div>
-        <div style="flex:1.5; display:flex; gap:20px;">
-          <ul class="cs-check-list" style="font-size:13px; flex:1;">
-            <li>Basic Maintenance</li>
-            <li>Troubleshooting</li>
-            <li>Component Inspection</li>
-            <li>Vehicle Preparation</li>
-          </ul>
-          <div style="flex:1;">
-            <p style="font-size:12px; color:#64748b;">Keep your RC car in top condition and solve issues effectively.</p>
-          </div>
+      <div class="light-card" style="display:flex; flex-direction:column; padding:15px; border-top:3px solid #e53e3e;">
+        <h3 class="cs-header" style="font-size:11px; margin-bottom:5px;"><span class="cs-num" style="background:#e53e3e; color:#fff; width:20px; height:20px; font-size:10px;">06</span> MAINTENANCE & TROUBLESHOOTING</h3>
+        <h4 class="navy-text mb-3" style="font-size:15px; line-height:1.2; min-height:40px;">Learn to Look After Your Machine</h4>
+        <img src="assets/simulator/maintenance-rc.png" alt="Maintenance" style="width:100%; border-radius:4px; height:90px; object-fit:cover; margin-bottom:15px;">
+        <ul class="cs-check-list mini-list" style="flex:1;">
+          <li>Basic Maintenance</li>
+          <li>Troubleshooting</li>
+          <li>Component Inspection</li>
+          <li>Vehicle Preparation</li>
+        </ul>
+        <div class="info-box box-grey" style="padding:10px; margin-top:10px;">
+          <div class="ib-text" style="font-size:11px; line-height:1.3;">Keep your RC car in top condition and solve issues effectively.</div>
         </div>
       </div>
-
       <!-- 07 -->
-      <div style="background:#f8f9fc; border-radius:8px; padding:25px; display:flex; gap:30px; align-items:flex-start;">
-        <div style="flex:1;">
-          <h3 class="cs-header" style="margin-bottom:10px;"><span class="cs-num" style="background:#e53e3e; color:#fff;">07</span> DRIVING TECHNIQUES</h3>
-          <h4 class="navy-text" style="font-size:18px;">From Basic Control to Track Practice</h4>
-        </div>
-        <div style="flex:1;">
-          <img src="assets/simulator/driving-rc.png" alt="RC Driving" style="width:100%; border-radius:8px; max-height:120px; object-fit:cover;">
-        </div>
-        <div style="flex:1.5; display:flex; gap:20px;">
-          <ul class="cs-check-list" style="font-size:13px; flex:1;">
-            <li>Driving Techniques</li>
-            <li>Vehicle Control</li>
-            <li>Track Practice</li>
-          </ul>
-          <div style="flex:1;">
-            <p style="font-size:12px; color:#64748b;">Develop control skills and learn how the car responds to your inputs on the track.</p>
-          </div>
+      <div class="light-card" style="display:flex; flex-direction:column; padding:15px; border-top:3px solid #e53e3e;">
+        <h3 class="cs-header" style="font-size:11px; margin-bottom:5px;"><span class="cs-num" style="background:#e53e3e; color:#fff; width:20px; height:20px; font-size:10px;">07</span> DRIVING TECHNIQUES</h3>
+        <h4 class="navy-text mb-3" style="font-size:15px; line-height:1.2; min-height:40px;">From Basic Control to Track Practice</h4>
+        <img src="assets/simulator/driving-rc.png" alt="Driving" style="width:100%; border-radius:4px; height:90px; object-fit:cover; margin-bottom:15px;">
+        <ul class="cs-check-list mini-list" style="flex:1;">
+          <li>Driving Techniques</li>
+          <li>Vehicle Control</li>
+          <li>Track Practice</li>
+        </ul>
+        <div class="info-box box-grey" style="padding:10px; margin-top:10px;">
+          <div class="ib-text" style="font-size:11px; line-height:1.3;">Develop control skills and learn how the car responds to your inputs on the track.</div>
         </div>
       </div>
-
     </div>
   </section>
 
   <!-- 08 LEARNING JOURNEY -->
-  <section class="course-section journey-section" style="background:#f8f9fc; padding:40px; border-radius:12px; margin-bottom:60px;">
-    <div class="journey-header" style="text-align:center; margin-bottom:40px;">
-      <h3 class="cs-header" style="justify-content:center;"><span class="cs-num">08</span> LEARNING JOURNEY</h3>
-      <div class="journey-steps-title navy-text" style="font-size:18px; font-weight:700; letter-spacing:1px; margin-top:10px;">BUILD → SETUP → CONTROL → DRIVE → ADVANCE</div>
+  <section class="course-section">
+    <div style="display:flex; align-items:center; gap:20px; justify-content:center;">
+      <h3 class="cs-header" style="margin:0;"><span class="cs-num">08</span> LEARNING JOURNEY</h3>
+      <div class="navy-text" style="font-size:20px; font-weight:800; letter-spacing:1px;">BUILD → SETUP → CONTROL → DRIVE → ADVANCE</div>
     </div>
     
-    <div class="timeline tl-6-steps" style="display:flex; justify-content:space-between; position:relative;">
-      <!-- Step 01 -->
-      <div class="tl-step" style="text-align:center; flex:1; padding:0 10px;">
-        <div class="tl-circle" style="background:#1e3a8a; color:#fff; width:24px; height:24px; border-radius:50%; margin:0 auto 10px; font-size:12px; display:flex; align-items:center; justify-content:center;">01</div>
-        <div class="tl-icon-circle" style="width:60px; height:60px; border:2px solid #1e3a8a; border-radius:50%; margin:0 auto 15px; display:flex; align-items:center; justify-content:center; background:#fff;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-        </div>
-        <h4 class="tl-title navy-text" style="font-size:14px; margin-bottom:5px;">BUILD</h4>
-        <p class="tl-desc" style="font-size:12px; color:#64748b;">Understand the chassis, mechanical components and vehicle assembly.</p>
+    <div class="tl-horizontal mt-5">
+      <div class="tl-step-col">
+        <div style="background:#e53e3e; color:#fff; width:24px; height:24px; border-radius:50%; font-size:12px; font-weight:bold; display:flex; align-items:center; justify-content:center; margin-bottom:10px;">01</div>
+        <div class="tl-icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+        <h4 class="navy-text">BUILD</h4>
+        <p style="font-size:12px; color:#64748b;">Understand chassis, mechanical components and assembly.</p>
       </div>
-      <!-- Step 02 -->
-      <div class="tl-step" style="text-align:center; flex:1; padding:0 10px;">
-        <div class="tl-circle" style="background:#1e3a8a; color:#fff; width:24px; height:24px; border-radius:50%; margin:0 auto 10px; font-size:12px; display:flex; align-items:center; justify-content:center;">02</div>
-        <div class="tl-icon-circle" style="width:60px; height:60px; border:2px solid #1e3a8a; border-radius:50%; margin:0 auto 15px; display:flex; align-items:center; justify-content:center; background:#fff;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/></svg>
-        </div>
-        <h4 class="tl-title navy-text" style="font-size:14px; margin-bottom:5px;">CONFIGURE</h4>
-        <p class="tl-desc" style="font-size:12px; color:#64748b;">Explore electronics, transmitter/receiver systems and steering configuration.</p>
+      <div class="tl-step-col">
+        <div style="background:#e53e3e; color:#fff; width:24px; height:24px; border-radius:50%; font-size:12px; font-weight:bold; display:flex; align-items:center; justify-content:center; margin-bottom:10px;">02</div>
+        <div class="tl-icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/></svg></div>
+        <h4 class="navy-text">CONFIGURE</h4>
+        <p style="font-size:12px; color:#64748b;">Explore electronics, transmitter/receiver systems and steering.</p>
       </div>
-      <!-- Step 03 -->
-      <div class="tl-step" style="text-align:center; flex:1; padding:0 10px;">
-        <div class="tl-circle" style="background:#1e3a8a; color:#fff; width:24px; height:24px; border-radius:50%; margin:0 auto 10px; font-size:12px; display:flex; align-items:center; justify-content:center;">03</div>
-        <div class="tl-icon-circle" style="width:60px; height:60px; border:2px solid #1e3a8a; border-radius:50%; margin:0 auto 15px; display:flex; align-items:center; justify-content:center; background:#fff;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-        </div>
-        <h4 class="tl-title navy-text" style="font-size:14px; margin-bottom:5px;">SETUP</h4>
-        <p class="tl-desc" style="font-size:12px; color:#64748b;">Understand power systems, suspension, steering and vehicle setup.</p>
+      <div class="tl-step-col">
+        <div style="background:#e53e3e; color:#fff; width:24px; height:24px; border-radius:50%; font-size:12px; font-weight:bold; display:flex; align-items:center; justify-content:center; margin-bottom:10px;">03</div>
+        <div class="tl-icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <h4 class="navy-text">SETUP</h4>
+        <p style="font-size:12px; color:#64748b;">Understand power systems, suspension and vehicle setup.</p>
       </div>
-      <!-- Step 04 -->
-      <div class="tl-step" style="text-align:center; flex:1; padding:0 10px;">
-        <div class="tl-circle" style="background:#1e3a8a; color:#fff; width:24px; height:24px; border-radius:50%; margin:0 auto 10px; font-size:12px; display:flex; align-items:center; justify-content:center;">04</div>
-        <div class="tl-icon-circle" style="width:60px; height:60px; border:2px solid #1e3a8a; border-radius:50%; margin:0 auto 15px; display:flex; align-items:center; justify-content:center; background:#fff;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2" ry="2"/></svg>
-        </div>
-        <h4 class="tl-title navy-text" style="font-size:14px; margin-bottom:5px;">CONTROL</h4>
-        <p class="tl-desc" style="font-size:12px; color:#64748b;">Develop vehicle-control skills and learn how the car responds to inputs.</p>
+      <div class="tl-step-col">
+        <div style="background:#e53e3e; color:#fff; width:24px; height:24px; border-radius:50%; font-size:12px; font-weight:bold; display:flex; align-items:center; justify-content:center; margin-bottom:10px;">04</div>
+        <div class="tl-icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2" ry="2"/></svg></div>
+        <h4 class="navy-text">CONTROL</h4>
+        <p style="font-size:12px; color:#64748b;">Develop control skills and learn how the car responds.</p>
       </div>
-      <!-- Step 05 -->
-      <div class="tl-step" style="text-align:center; flex:1; padding:0 10px;">
-        <div class="tl-circle" style="background:#1e3a8a; color:#fff; width:24px; height:24px; border-radius:50%; margin:0 auto 10px; font-size:12px; display:flex; align-items:center; justify-content:center;">05</div>
-        <div class="tl-icon-circle" style="width:60px; height:60px; border:2px solid #1e3a8a; border-radius:50%; margin:0 auto 15px; display:flex; align-items:center; justify-content:center; background:#fff;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
-        </div>
-        <h4 class="tl-title navy-text" style="font-size:14px; margin-bottom:5px;">DRIVE</h4>
-        <p class="tl-desc" style="font-size:12px; color:#64748b;">Practice driving techniques in a controlled track environment.</p>
+      <div class="tl-step-col">
+        <div style="background:#e53e3e; color:#fff; width:24px; height:24px; border-radius:50%; font-size:12px; font-weight:bold; display:flex; align-items:center; justify-content:center; margin-bottom:10px;">05</div>
+        <div class="tl-icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
+        <h4 class="navy-text">DRIVE</h4>
+        <p style="font-size:12px; color:#64748b;">Practice driving techniques in a controlled track environment.</p>
       </div>
-      <!-- Step 06 -->
-      <div class="tl-step" style="text-align:center; flex:1; padding:0 10px;">
-        <div class="tl-circle" style="background:#1e3a8a; color:#fff; width:24px; height:24px; border-radius:50%; margin:0 auto 10px; font-size:12px; display:flex; align-items:center; justify-content:center;">06</div>
-        <div class="tl-icon-circle" style="width:60px; height:60px; border:2px solid #1e3a8a; border-radius:50%; margin:0 auto 15px; display:flex; align-items:center; justify-content:center; background:#fff;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-        </div>
-        <h4 class="tl-title navy-text" style="font-size:14px; margin-bottom:5px;">ADVANCE</h4>
-        <p class="tl-desc" style="font-size:12px; color:#64748b;">Develop a deeper understanding of how setup influences handling.</p>
+      <div class="tl-step-col">
+        <div style="background:#e53e3e; color:#fff; width:24px; height:24px; border-radius:50%; font-size:12px; font-weight:bold; display:flex; align-items:center; justify-content:center; margin-bottom:10px;">06</div>
+        <div class="tl-icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+        <h4 class="navy-text">ADVANCE</h4>
+        <p style="font-size:12px; color:#64748b;">Develop a deeper understanding of handling and performance.</p>
       </div>
     </div>
   </section>
@@ -324,14 +302,12 @@
   <!-- 09 ENGINEERING + DRIVING -->
   <section class="course-section">
     <h3 class="cs-header"><span class="cs-num">09</span> ENGINEERING + DRIVING</h3>
-    <h2 class="cs-title navy-text">TWO SIDES OF RC MOTORSPORT</h2>
+    <h2 class="cs-title">TWO SIDES OF RC MOTORSPORT</h2>
     
-    <div class="split-layout mt-4" style="gap:20px; display:flex;">
-      <!-- Engineering -->
-      <div style="flex:1; background:#f8f9fc; border-top: 3px solid #e53e3e; border-radius:8px; padding:25px;">
-        <h3 class="navy-text mb-2" style="font-size:20px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e53e3e" stroke-width="2" style="vertical-align:middle; margin-right:5px;"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> ENGINEERING</h3>
-        <p class="mb-3" style="font-size:14px; font-style:italic; color:#64748b;">Build & Understand</p>
-        <ul class="cs-check-list" style="font-size:14px;">
+    <div style="display:flex; gap:20px; margin-top:20px;">
+      <div class="light-card" style="flex:1; border-top: 3px solid #e53e3e;">
+        <h3 class="navy-text mb-2" style="font-size:18px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e53e3e" stroke-width="2" style="vertical-align:middle; margin-right:5px;"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> ENGINEERING <span style="font-size:12px; font-weight:normal; font-style:italic; color:#64748b; margin-left:10px;">Build & Understand</span></h3>
+        <ul class="cs-check-list mini-list mt-3">
           <li>Chassis</li>
           <li>Suspension</li>
           <li>Steering</li>
@@ -344,245 +320,189 @@
           <li>Troubleshooting</li>
         </ul>
       </div>
-      <!-- Driving -->
-      <div style="flex:1; background:#f8f9fc; border-top: 3px solid #e53e3e; border-radius:8px; padding:25px; position:relative; overflow:hidden;">
-        <h3 class="navy-text mb-2" style="font-size:20px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e53e3e" stroke-width="2" style="vertical-align:middle; margin-right:5px;"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg> DRIVING</h3>
-        <p class="mb-3" style="font-size:14px; font-style:italic; color:#64748b;">Control & Perform</p>
-        <ul class="cs-check-list" style="font-size:14px;">
+      <div class="light-card" style="flex:1; border-top: 3px solid #e53e3e; position:relative; overflow:hidden;">
+        <h3 class="navy-text mb-2" style="font-size:18px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e53e3e" stroke-width="2" style="vertical-align:middle; margin-right:5px;"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg> DRIVING <span style="font-size:12px; font-weight:normal; font-style:italic; color:#64748b; margin-left:10px;">Control & Perform</span></h3>
+        <ul class="cs-check-list mini-list mt-3">
           <li>Vehicle Control</li>
           <li>Driving Techniques</li>
           <li>Track Practice</li>
           <li>Understanding Handling</li>
           <li>Understanding Performance</li>
         </ul>
-        <img src="assets/simulator/driving-overlay.png" alt="RC Buggy" style="position:absolute; bottom:0; right:0; width:150px; opacity:0.3;">
+        <img src="assets/simulator/driving-overlay.png" alt="RC Buggy" style="position:absolute; bottom:-10px; right:0; width:180px; opacity:0.8;">
       </div>
     </div>
-    <div class="info-box box-light mt-4" style="border:1px solid #e53e3e; padding:15px; border-radius:8px; display:flex; align-items:center; gap:15px;">
+    <div class="info-box box-grey mt-3" style="border:1px solid #e53e3e;">
       <div class="ib-icon text-red">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e53e3e" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
       </div>
-      <div class="ib-text navy-text" style="font-size:14px;">RC Motorsport isn't just about driving the car — it's about understanding what makes the car perform.</div>
+      <div class="ib-text">RC Motorsport isn't just about driving the car — it's about understanding what makes the car perform.</div>
     </div>
   </section>
 
-  <!-- 10 SKILLS DEVELOPED -->
-  <section class="course-section" style="border-top:1px solid #e2e8f0; padding-top:40px;">
+  <!-- 10 SKILLS DEVELOPED (3x2 Grid) -->
+  <section class="course-section">
     <h3 class="cs-header"><span class="cs-num">10</span> SKILLS DEVELOPED</h3>
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:30px; margin-top:20px;">
-      <div style="display:flex; gap:15px;">
-        <svg class="text-navy" style="flex-shrink:0;" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+    <div class="grid-3-col mt-4">
+      <div style="display:flex; align-items:flex-start; gap:15px;">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#e53e3e" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
         <div>
-          <h4 class="navy-text" style="margin:0 0 5px;">Mechanical Understanding</h4>
-          <p style="font-size:13px; color:#64748b; margin:0;">Learn about chassis, suspension, steering and other mechanical components.</p>
+          <h4 class="navy-text mb-1" style="font-size:15px;">Mechanical Understanding</h4>
+          <p style="margin:0; font-size:12px; color:#64748b;">Learn about chassis, suspension, steering and other mechanical components.</p>
         </div>
       </div>
-      <div style="display:flex; gap:15px;">
-        <svg class="text-navy" style="flex-shrink:0;" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      <div style="display:flex; align-items:flex-start; gap:15px;">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#e53e3e" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
         <div>
-          <h4 class="navy-text" style="margin:0 0 5px;">Technical Understanding</h4>
-          <p style="font-size:13px; color:#64748b; margin:0;">Explore power systems and RC electronics.</p>
+          <h4 class="navy-text mb-1" style="font-size:15px;">Technical Understanding</h4>
+          <p style="margin:0; font-size:12px; color:#64748b;">Explore power systems and RC electronics.</p>
         </div>
       </div>
-      <div style="display:flex; gap:15px;">
-        <svg class="text-navy" style="flex-shrink:0;" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg>
+      <div style="display:flex; align-items:flex-start; gap:15px;">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#e53e3e" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg>
         <div>
-          <h4 class="navy-text" style="margin:0 0 5px;">Vehicle Control</h4>
-          <p style="font-size:13px; color:#64748b; margin:0;">Develop control and driving skills.</p>
+          <h4 class="navy-text mb-1" style="font-size:15px;">Vehicle Control</h4>
+          <p style="margin:0; font-size:12px; color:#64748b;">Develop control and driving skills.</p>
         </div>
       </div>
-      <div style="display:flex; gap:15px;">
-        <svg class="text-navy" style="flex-shrink:0;" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+      <div style="display:flex; align-items:flex-start; gap:15px;">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#e53e3e" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
         <div>
-          <h4 class="navy-text" style="margin:0 0 5px;">Practical Skills</h4>
-          <p style="font-size:13px; color:#64748b; margin:0;">Gain hands-on experience with assembly, setup and maintenance.</p>
+          <h4 class="navy-text mb-1" style="font-size:15px;">Practical Skills</h4>
+          <p style="margin:0; font-size:12px; color:#64748b;">Gain hands-on experience with assembly, setup and maintenance.</p>
         </div>
       </div>
-      <div style="display:flex; gap:15px;">
-        <svg class="text-navy" style="flex-shrink:0;" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <div style="display:flex; align-items:flex-start; gap:15px;">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#e53e3e" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
         <div>
-          <h4 class="navy-text" style="margin:0 0 5px;">Problem Solving</h4>
-          <p style="font-size:13px; color:#64748b; margin:0;">Develop basic troubleshooting skills.</p>
+          <h4 class="navy-text mb-1" style="font-size:15px;">Problem Solving</h4>
+          <p style="margin:0; font-size:12px; color:#64748b;">Develop basic troubleshooting skills.</p>
         </div>
       </div>
-      <div style="display:flex; gap:15px;">
-        <svg class="text-navy" style="flex-shrink:0;" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+      <div style="display:flex; align-items:flex-start; gap:15px;">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#e53e3e" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
         <div>
-          <h4 class="navy-text" style="margin:0 0 5px;">Motorsport Awareness</h4>
-          <p style="font-size:13px; color:#64748b; margin:0;">Understand how vehicle setup can influence handling and performance.</p>
+          <h4 class="navy-text mb-1" style="font-size:15px;">Motorsport Awareness</h4>
+          <p style="margin:0; font-size:12px; color:#64748b;">Understand how vehicle setup can influence handling and performance.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- 11 WHO IS THIS FOR -->
-  <section class="course-section" style="border-top:1px solid #e2e8f0; padding-top:40px;">
-    <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+  <section class="course-section" style="background:#f8f9fc; padding:40px; border-radius:12px;">
+    <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:30px;">
       <div>
         <h3 class="cs-header"><span class="cs-num">11</span> WHO IS THIS PROGRAM FOR?</h3>
-        <h2 class="cs-title navy-text mb-2">Young RC Motorsport Enthusiasts</h2>
-        <p style="font-size:14px; color:#64748b;">This program is suited for young aspirants interested in:</p>
+        <h2 class="cs-title">Young RC Motorsport Enthusiasts</h2>
+        <p style="font-size:13px; color:#64748b;">This program is suited for young aspirants interested in:</p>
       </div>
-      <div class="course-hero-age navy-text" style="background:#f8f9fc; padding:10px 15px; border-radius:8px; border:1px solid #e2e8f0; display:flex; align-items:center; gap:8px;">
+      <div class="course-hero-age navy-text" style="background:#fff; padding:10px 15px; border-radius:8px; border:1px solid #e2e8f0; display:flex; align-items:center; gap:8px;">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e53e3e" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-        <strong>Recommended Age: 10+</strong>
+        <strong style="font-size:13px;">Recommended Age: 10+</strong>
       </div>
     </div>
     
-    <div style="display:flex; flex-direction:column; gap:20px; margin-top:30px;">
-      <div style="display:flex; gap:15px; align-items:center;">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2"><path d="M2 12h20"/><path d="M2 16h20"/><path d="M2 8h20"/></svg>
-        <span style="font-size:14px; color:#64748b;">RC Cars</span>
+    <div class="icon-grid-7">
+      <div style="text-align:center;">
+        <div class="icon-circle-lg"><svg stroke="var(--navy)" fill="none" stroke-width="2" viewBox="0 0 24 24" height="28" width="28"><path d="M2 12h20"/><path d="M2 16h20"/><path d="M2 8h20"/></svg></div>
+        <div style="font-size:11px; font-weight:600; color:var(--navy);">RC Cars</div>
       </div>
-      <div style="display:flex; gap:15px; align-items:center;">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2" ry="2"/></svg>
-        <span style="font-size:14px; color:#64748b;">Motorsport</span>
+      <div style="text-align:center;">
+        <div class="icon-circle-lg"><svg stroke="var(--navy)" fill="none" stroke-width="2" viewBox="0 0 24 24" height="28" width="28"><rect x="2" y="6" width="20" height="12" rx="2" ry="2"/></svg></div>
+        <div style="font-size:11px; font-weight:600; color:var(--navy);">Motorsport</div>
       </div>
-      <div style="display:flex; gap:15px; align-items:center;">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-        <span style="font-size:14px; color:#64748b;">Mechanical Systems</span>
+      <div style="text-align:center;">
+        <div class="icon-circle-lg"><svg stroke="var(--navy)" fill="none" stroke-width="2" viewBox="0 0 24 24" height="28" width="28"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+        <div style="font-size:11px; font-weight:600; color:var(--navy);">Mechanical Systems</div>
       </div>
-      <div style="display:flex; gap:15px; align-items:center;">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/></svg>
-        <span style="font-size:14px; color:#64748b;">Electronics</span>
+      <div style="text-align:center;">
+        <div class="icon-circle-lg"><svg stroke="var(--navy)" fill="none" stroke-width="2" viewBox="0 0 24 24" height="28" width="28"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/></svg></div>
+        <div style="font-size:11px; font-weight:600; color:var(--navy);">Electronics</div>
       </div>
-      <div style="display:flex; gap:15px; align-items:center;">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
-        <span style="font-size:14px; color:#64748b;">Vehicle Technology</span>
+      <div style="text-align:center;">
+        <div class="icon-circle-lg"><svg stroke="var(--navy)" fill="none" stroke-width="2" viewBox="0 0 24 24" height="28" width="28"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></div>
+        <div style="font-size:11px; font-weight:600; color:var(--navy);">Vehicle Technology</div>
       </div>
-      <div style="display:flex; gap:15px; align-items:center;">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg>
-        <span style="font-size:14px; color:#64748b;">Driving</span>
+      <div style="text-align:center;">
+        <div class="icon-circle-lg"><svg stroke="var(--navy)" fill="none" stroke-width="2" viewBox="0 0 24 24" height="28" width="28"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg></div>
+        <div style="font-size:11px; font-weight:600; color:var(--navy);">Driving</div>
       </div>
-      <div style="display:flex; gap:15px; align-items:center;">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
-        <span style="font-size:14px; color:#64748b;">Track Practice</span>
+      <div style="text-align:center;">
+        <div class="icon-circle-lg"><svg stroke="var(--navy)" fill="none" stroke-width="2" viewBox="0 0 24 24" height="28" width="28"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
+        <div style="font-size:11px; font-weight:600; color:var(--navy);">Track Practice</div>
       </div>
     </div>
     
-    <p style="font-size:12px; color:#64748b; margin-top:20px;">Programs and practical activities may be adapted according to age, previous experience, learning progress, technical ability, skill level, equipment suitability and safety requirements.</p>
+    <p style="font-size:11px; color:#64748b; margin-top:25px; line-height:1.5;">Programs and practical activities may be adapted according to age, previous experience, learning progress, technical ability, skill level, equipment suitability and safety requirements.</p>
   </section>
 
-  <!-- 12 COURSE MODULES (Accordion Style from screenshot) -->
-  <section class="course-section" style="border-top:1px solid #e2e8f0; padding-top:40px;">
+  <!-- 12 COURSE MODULES (6-COL GRID) -->
+  <section class="course-section">
     <h3 class="cs-header"><span class="cs-num">12</span> COURSE MODULES</h3>
-    
-    <div style="display:flex; flex-direction:column; gap:15px; margin-top:20px;">
-      <!-- Module 1 -->
-      <div style="background:#f8f9fc; border-radius:8px; padding:20px 30px; display:flex; align-items:flex-start;">
-        <div style="width:250px;">
-          <h4 class="navy-text" style="margin:0; font-size:16px;">01 RC Car Types</h4>
-        </div>
-        <div style="flex:1;">
-          <ul class="cs-check-list" style="margin:0; font-size:13px;">
-            <li>Electric RC Cars</li>
-            <li>Nitro RC Cars</li>
-            <li>Gas / Petrol RC Cars</li>
-          </ul>
-        </div>
+    <div class="grid-6-col mt-4">
+      <div class="mini-card" style="border-top:2px solid #e53e3e;">
+        <h4 class="navy-text" style="font-size:14px; margin-bottom:10px;"><span style="color:#e53e3e;">01</span> RC Car Types</h4>
+        <ul class="cs-list" style="font-size:11px; padding-left:15px; color:#64748b; margin:0;">
+          <li>Electric RC Cars</li>
+          <li>Nitro RC Cars</li>
+          <li>Gas / Petrol RC Cars</li>
+        </ul>
       </div>
-      <!-- Module 2 -->
-      <div style="background:#f8f9fc; border-radius:8px; padding:20px 30px; display:flex; align-items:flex-start;">
-        <div style="width:250px;">
-          <h4 class="navy-text" style="margin:0; font-size:16px;">02 Building & Assembly</h4>
-        </div>
-        <div style="flex:1;">
-          <ul class="cs-check-list" style="margin:0; font-size:13px;">
-            <li>DIY & Ready Kits</li>
-            <li>Chassis</li>
-            <li>Mechanical Components</li>
-          </ul>
-        </div>
+      <div class="mini-card" style="border-top:2px solid #e53e3e;">
+        <h4 class="navy-text" style="font-size:14px; margin-bottom:10px;"><span style="color:#e53e3e;">02</span> Building & Assembly</h4>
+        <ul class="cs-list" style="font-size:11px; padding-left:15px; color:#64748b; margin:0;">
+          <li>DIY & Ready Kits</li>
+          <li>Chassis</li>
+          <li>Mechanical Components</li>
+        </ul>
       </div>
-      <!-- Module 3 -->
-      <div style="background:#f8f9fc; border-radius:8px; padding:20px 30px; display:flex; align-items:flex-start;">
-        <div style="width:250px;">
-          <h4 class="navy-text" style="margin:0; font-size:16px;">03 Vehicle Systems</h4>
-        </div>
-        <div style="flex:1;">
-          <ul class="cs-check-list" style="margin:0; font-size:13px;">
-            <li>Suspension</li>
-            <li>Steering</li>
-            <li>Motor / Engine</li>
-            <li>Power Systems</li>
-          </ul>
-        </div>
+      <div class="mini-card" style="border-top:2px solid #e53e3e;">
+        <h4 class="navy-text" style="font-size:14px; margin-bottom:10px;"><span style="color:#e53e3e;">03</span> Vehicle Systems</h4>
+        <ul class="cs-list" style="font-size:11px; padding-left:15px; color:#64748b; margin:0;">
+          <li>Suspension</li>
+          <li>Steering</li>
+          <li>Motor / Engine</li>
+          <li>Power Systems</li>
+        </ul>
       </div>
-      <!-- Module 4 -->
-      <div style="background:#f8f9fc; border-radius:8px; padding:20px 30px; display:flex; align-items:flex-start;">
-        <div style="width:250px;">
-          <h4 class="navy-text" style="margin:0; font-size:16px;">04 Electronics & Configuration</h4>
-        </div>
-        <div style="flex:1;">
-          <ul class="cs-check-list" style="margin:0; font-size:13px;">
-            <li>Electronics Installation</li>
-            <li>Transmitter & Receiver</li>
-            <li>Steering Configuration</li>
-          </ul>
-        </div>
+      <div class="mini-card" style="border-top:2px solid #e53e3e;">
+        <h4 class="navy-text" style="font-size:14px; margin-bottom:10px;"><span style="color:#e53e3e;">04</span> Electronics & Configuration</h4>
+        <ul class="cs-list" style="font-size:11px; padding-left:15px; color:#64748b; margin:0;">
+          <li>Electronics Installation</li>
+          <li>Transmitter & Receiver</li>
+          <li>Steering Configuration</li>
+        </ul>
       </div>
-      <!-- Module 5 -->
-      <div style="background:#f8f9fc; border-radius:8px; padding:20px 30px; display:flex; align-items:flex-start;">
-        <div style="width:250px;">
-          <h4 class="navy-text" style="margin:0; font-size:16px;">05 Maintenance</h4>
-        </div>
-        <div style="flex:1;">
-          <ul class="cs-check-list" style="margin:0; font-size:13px;">
-            <li>Basic Maintenance</li>
-            <li>Troubleshooting</li>
-          </ul>
-        </div>
+      <div class="mini-card" style="border-top:2px solid #e53e3e;">
+        <h4 class="navy-text" style="font-size:14px; margin-bottom:10px;"><span style="color:#e53e3e;">05</span> Maintenance</h4>
+        <ul class="cs-list" style="font-size:11px; padding-left:15px; color:#64748b; margin:0;">
+          <li>Basic Maintenance</li>
+          <li>Troubleshooting</li>
+        </ul>
       </div>
-      <!-- Module 6 -->
-      <div style="background:#f8f9fc; border-radius:8px; padding:20px 30px; display:flex; align-items:flex-start;">
-        <div style="width:250px;">
-          <h4 class="navy-text" style="margin:0; font-size:16px;">06 Driving & Track Practice</h4>
-        </div>
-        <div style="flex:1;">
-          <ul class="cs-check-list" style="margin:0; font-size:13px;">
-            <li>Driving Techniques</li>
-            <li>Vehicle Control</li>
-            <li>Track Practice</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 13 FEATURE BANNER -->
-  <section class="course-section" style="border-top:1px solid #1e3a8a; padding-top:40px; margin-top:20px;">
-    <div style="margin-bottom:30px;">
-      <h2 class="navy-text" style="font-size:32px; font-weight:800; text-transform:uppercase;">BUILD IT. TUNE IT. DRIVE IT.</h2>
-      <p style="font-size:14px; color:#64748b; max-width:800px; margin-top:15px;">Learn the engineering behind an RC car, understand how its systems work together, configure the vehicle and develop the skills needed to control it on the track.</p>
-    </div>
-    
-    <div style="display:flex; flex-direction:column; gap:15px;">
-      <div style="background:#f8f9fc; padding:20px; border-radius:8px; border-left:3px solid #e53e3e; display:flex; align-items:center;">
-        <h3 class="navy-text" style="margin:0; width:150px; font-size:18px;">BUILD</h3>
-        <p style="margin:0; font-size:13px; color:#64748b;">Chassis • Suspension • Electronics</p>
-      </div>
-      <div style="background:#f8f9fc; padding:20px; border-radius:8px; border-left:3px solid #e53e3e; display:flex; align-items:center;">
-        <h3 class="navy-text" style="margin:0; width:150px; font-size:18px;">SETUP</h3>
-        <p style="margin:0; font-size:13px; color:#64748b;">Power • Steering • Configuration</p>
-      </div>
-      <div style="background:#f8f9fc; padding:20px; border-radius:8px; border-left:3px solid #e53e3e; display:flex; align-items:center;">
-        <h3 class="navy-text" style="margin:0; width:150px; font-size:18px;">DRIVE</h3>
-        <p style="margin:0; font-size:13px; color:#64748b;">Control • Technique • Track Practice</p>
+      <div class="mini-card" style="border-top:2px solid #e53e3e;">
+        <h4 class="navy-text" style="font-size:14px; margin-bottom:10px;"><span style="color:#e53e3e;">06</span> Driving & Track Practice</h4>
+        <ul class="cs-list" style="font-size:11px; padding-left:15px; color:#64748b; margin:0;">
+          <li>Driving Techniques</li>
+          <li>Vehicle Control</li>
+          <li>Track Practice</li>
+        </ul>
       </div>
     </div>
   </section>
 
   <!-- 14 SAFETY & PROGRESSION -->
   <section class="course-section" style="border-top:1px solid #e2e8f0; padding-top:40px; margin-top:20px; margin-bottom:60px; display:flex; gap:30px;">
-    <div style="flex:1; background:#f8f9fc; padding:25px; border-radius:8px; display:flex; gap:20px; align-items:flex-start;">
-      <svg style="color:#64748b;" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    <div style="flex:1; border:1px solid #e2e8f0; padding:25px; border-radius:8px; display:flex; gap:20px; align-items:flex-start;">
+      <svg style="color:#1e3a8a;" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
       <div>
         <h4 class="navy-text" style="margin:0 0 10px;">Safety Comes First</h4>
         <p style="margin:0; font-size:12px; color:#64748b; line-height:1.5;">All RC model operation and practical sessions are conducted subject to applicable laws and regulations, permitted locations, safety requirements, instructor supervision, student ability and equipment suitability.</p>
       </div>
     </div>
-    <div style="flex:1; background:#f8f9fc; padding:25px; border-radius:8px; display:flex; gap:20px; align-items:flex-start;">
-      <svg style="color:#64748b;" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+    <div style="flex:1; border:1px solid #e2e8f0; padding:25px; border-radius:8px; display:flex; gap:20px; align-items:flex-start;">
+      <svg style="color:#1e3a8a;" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
       <div>
         <h4 class="navy-text" style="margin:0 0 10px;">Learn. Practice. Progress.</h4>
         <p style="margin:0; font-size:12px; color:#64748b; line-height:1.5;">Programs and practical activities may be adapted according to each student's age, previous experience, learning progress, technical ability, skill level, equipment suitability and safety requirements.</p>
@@ -604,6 +524,7 @@
     </div>
   </section>
 
+  <!-- FOOTER PLACEHOLDER -->
   <footer class="site-footer">
     <div class="footer-top">
       <div class="footer-contact">
