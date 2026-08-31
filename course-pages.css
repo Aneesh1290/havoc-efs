@@ -100,7 +100,7 @@
 .course-hero-desc {
   font-size: 15px;
   line-height: 1.6;
-  opacity: 0.9;
+  color: rgba(255, 255, 255, 0.9);
   max-width: 90%;
 }
 
