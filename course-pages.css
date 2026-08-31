@@ -745,22 +745,34 @@ details[open] .acc-title {
   }
   .tl-step {
     width: 100%;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    grid-template-areas: 
+      "num icon title"
+      "num icon desc";
     text-align: left;
     align-items: center;
-    gap: 20px;
+    gap: 0 15px;
+    margin-bottom: 20px;
   }
   .tl-step .tl-circle {
+    grid-area: num;
     margin-bottom: 0;
   }
   .tl-step .tl-icon-circle {
+    grid-area: icon;
     margin-bottom: 0;
   }
   .tl-title {
+    grid-area: title;
     margin-bottom: 4px;
+    align-self: end;
   }
   .tl-desc {
+    grid-area: desc;
     text-align: left;
+    align-self: start;
+    margin-bottom: 0;
   }
   
   /* Buttons */
