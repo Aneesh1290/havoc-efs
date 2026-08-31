@@ -695,3 +695,109 @@ details[open] .acc-title {
   transform: translateY(-5px);
 }
 
+/* RESPONSIVE MEDIA QUERIES FOR ALL COURSE PAGES */
+@media (max-width: 991px) {
+  /* Hero Section */
+  .course-hero {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .course-hero-content {
+    width: 100%;
+    padding: 40px 5%;
+  }
+  .course-hero-bg {
+    width: 100%;
+    opacity: 0.2;
+    clip-path: none;
+  }
+  .course-hero-bg::before {
+    display: none;
+  }
+
+  /* Splits & Grids */
+  .overview-section, .split-2-col, .cta-inner {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .col-3-layout {
+    grid-template-columns: 1fr;
+  }
+  .bottom-grid {
+    grid-template-columns: 1fr;
+  }
+  .img-grid-2x3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Timeline / Journey */
+  .journey-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  .timeline {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .tl-connector {
+    display: none;
+  }
+  .tl-step {
+    width: 100%;
+    flex-direction: row;
+    text-align: left;
+    align-items: center;
+    gap: 20px;
+  }
+  .tl-step .tl-circle {
+    margin-bottom: 0;
+  }
+  .tl-step .tl-icon-circle {
+    margin-bottom: 0;
+  }
+  .tl-title {
+    margin-bottom: 4px;
+  }
+  .tl-desc {
+    text-align: left;
+  }
+  
+  /* Buttons */
+  .cta-right {
+    flex-direction: column;
+    width: 100%;
+  }
+  .cta-right a {
+    text-align: center;
+  }
+}
+
+@media (max-width: 575px) {
+  .course-hero-title {
+    font-size: 36px;
+  }
+  .cs-title {
+    font-size: 24px;
+  }
+  .img-grid-2x3 {
+    grid-template-columns: 1fr;
+  }
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  .build-features-grid, .sim-features-grid {
+    grid-template-columns: 1fr;
+  }
+  .split-list {
+    grid-template-columns: 1fr;
+  }
+  .course-section {
+    padding: 40px 15px;
+  }
+  .split-2-col, .journey-section, .who-box, .safety-box {
+    padding: 30px 15px;
+  }
+}
+
+
