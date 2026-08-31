@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>F1 & GT Sim Racing | Havoc EFS</title>
+  <meta name="description" content="Develop advanced racing skills through F1 and GT simulation. Focus, practice, perform, and race with Havoc EFS." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="course-pages.css" />
+  <style>
+    /* Custom Grids for Sim Racing Page */
+    .grid-5-col { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+    .grid-4-col { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .grid-3-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .grid-6-col { display: grid; grid-template-columns: repeat(6, 1fr); gap: 15px; }
+    .icon-grid-7 { display: flex; justify-content: space-between; gap: 15px; flex-wrap: wrap; }
+    
+    .light-card { background-color: #f8f9fc; border-radius: 8px; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; }
+    .light-feature-card { background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; display: flex; flex-direction: column; }
+    .lfc-img { height: 140px; overflow: hidden; }
+    .lfc-img img { width: 100%; height: 100%; object-fit: cover; }
+    .lfc-content { padding: 15px; flex: 1; }
+    
+    .mini-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    
+    .tl-horizontal { display: flex; justify-content: space-between; align-items: flex-start; position: relative; margin-top: 40px; }
+    .tl-horizontal::before { content: ''; position: absolute; top: 25px; left: 30px; right: 30px; height: 2px; background: #e2e8f0; z-index: 0; border-top: 2px dashed #cbd5e1; }
+    .tl-step-col { flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; z-index: 1; padding: 0 5px; }
+    .tl-icon-wrap { width: 50px; height: 50px; border-radius: 50%; background: #fff; border: 2px solid var(--navy); display: flex; align-items: center; justify-content: center; margin-bottom: 15px; }
+    
+    .icon-circle-lg { width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--navy); display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; }
+
+    /* Responsive Flex Layouts */
+    .flex-responsive-row { display: flex; gap: 20px; }
+    .overview-split { display: flex; gap: 30px; align-items: flex-start; }
+    
+    @media (max-width: 1200px) {
+      .grid-5-col { grid-template-columns: repeat(3, 1fr); }
+      .grid-6-col { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 991px) {
+      .grid-5-col, .grid-4-col, .grid-6-col { grid-template-columns: repeat(2, 1fr); }
+      .grid-3-col { grid-template-columns: repeat(2, 1fr); }
+      .tl-horizontal { flex-direction: column; align-items: flex-start; }
+      .tl-horizontal::before { display: none; }
+      .tl-step-col { flex-direction: row; text-align: left; align-items: flex-start; margin-bottom: 20px; }
+      .tl-icon-wrap { margin-right: 15px; margin-bottom: 0; }
+      
+      .overview-split { flex-direction: column; }
+      .flex-responsive-row { flex-direction: column; gap: 15px; }
+      .split-list { flex-direction: column; gap: 10px; }
+      .course-hero-content { width: 100%; padding: 40px 5%; }
+      .course-hero-bg { width: 100%; opacity: 0.2; }
+    }
+    @media (max-width: 575px) {
+      .grid-5-col, .grid-4-col, .grid-3-col, .grid-6-col { grid-template-columns: 1fr; }
+      .tl-step-col p { font-size: 13px; }
+      .course-hero-title { font-size: 32px; }
+      .cs-title { font-size: 24px; }
+    }
+  </style>
+</head>
+<body class="course-page-body rc-cars-page">
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <a href="/" id="logo-link">
+          <img src="assets/home-page/logo.svg" alt="Havoc EFS - Havoc Early Fun School" class="nav-logo-img" />
+        </a>
+      </div>
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <nav class="nav-links">
+        <a href="/" class="nav-link" id="nav-home">Home</a>
+        <a href="/about" class="nav-link" id="nav-about">About</a>
+        <a href="/courses" class="nav-link active" id="nav-courses">Courses</a>
+        <a href="/contact" class="nav-link" id="nav-contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="course-hero">
+    <div class="course-hero-bg">
+      <img src="assets/cources-page/sim-racing.png" alt="Sim Racing Background" style="object-position: center;">
+    </div>
+    <div class="course-hero-content">
+      <div class="breadcrumbs">
+        <a href="/courses">COURSES</a> <span class="sep">></span> <span>F1 & GT SIM RACING</span>
+      </div>
+      <h1 class="course-hero-title">F1 & GT<br>SIM RACING</h1>
+      <h2 class="course-hero-subtitle">
+        <span class="navy-text">Focus</span> <span class="red-text">•</span> 
+        <span class="navy-text">Practice</span> <span class="red-text">•</span> 
+        <span class="navy-text">Perform</span> <span class="red-text">•</span> 
+        <span class="red-text">Race</span>
+      </h2>
+      <div class="course-hero-age">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        <strong>Recommended Age: 12+</strong>
+      </div>
+      <p class="course-hero-desc">
+        Develop advanced racing skills through F1 and GT simulation, progressing from simulator familiarisation and car control to racing lines, lap improvement, racecraft, drifting and competitive race sessions.
+      </p>
+    </div>
+  </section>
+
+  <!-- 01 OVERVIEW -->
+  <section class="course-section overview-section">
+    <div class="overview-split">
+      <div class="cs-left" style="flex: 1.2;">
+        <h3 class="cs-header"><span class="cs-num">01</span> COURSE OVERVIEW</h3>
+        <h2 class="cs-title">From Simulator Familiarisation to Racecraft</h2>
+        <p>Havoc EFS offers structured F1 & GT Sim Racing Coaching & Training using advanced racing simulator setups.</p>
+        <p>The program progresses from basic simulator familiarisation and vehicle control towards advanced circuit driving, lap improvement, racecraft and performance development.</p>
+      </div>
+      <div class="cs-right" style="flex: 1.8; width: 100%;">
+        <div class="white-card p-6" style="background:#fff; border-radius:12px; padding:30px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); border: 1px solid #e2e8f0;">
+          <p class="cs-right-intro" style="margin-bottom:15px; font-weight:600;">Students progressively develop their understanding of:</p>
+          <div class="split-list" style="display:flex; gap:20px;">
+            <ul class="cs-check-list" style="flex:1;">
+              <li>Racing Simulators</li>
+              <li>Vehicle Controls</li>
+              <li>Steering & Braking</li>
+              <li>Racing Lines</li>
+              <li>Cornering</li>
+              <li>Track Layouts</li>
+            </ul>
+            <ul class="cs-check-list" style="flex:1;">
+              <li>Lap Performance</li>
+              <li>F1 & GT Driving</li>
+              <li>Drifting</li>
+              <li>Racecraft</li>
+              <li>Competitive Simulation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 SIMULATOR FAMILIARISATION -->
+  <section class="course-section">
+    <h3 class="cs-header"><span class="cs-num">02</span> SIMULATOR FAMILIARISATION</h3>
+    <h2 class="cs-title">Get Behind the Wheel</h2>
+    <p>Students begin by becoming familiar with the racing simulator environment and the equipment used to control the simulated vehicle.</p>
+    
+    <div class="flex-responsive-row mt-4">
+      <div class="light-card" style="flex:1; border-top: 3px solid #e53e3e;">
+        <h3 class="navy-text mb-2" style="font-size:18px;">Simulator Equipment</h3>
+        <ul class="cs-check-list mini-list mt-3">
+          <li>F1-Style Racing Simulators</li>
+          <li>GT Racing Simulators</li>
+          <li>Steering Wheel & Force-Feedback Systems</li>
+          <li>Accelerator, Brake & Clutch Pedals</li>
+          <li>Paddle Shifters & Manual Gear Controls</li>
+          <li>Racing Seats & Driving Position</li>
+          <li>Simulator Displays & Driver Information</li>
+        </ul>
+      </div>
+      <div class="light-card" style="flex:1; border-top: 3px solid #e53e3e;">
+        <h3 class="navy-text mb-2" style="font-size:18px;">Vehicle Setup</h3>
+        <p style="font-size:13px; color:#64748b; margin-bottom:15px;">Students are introduced to:</p>
+        <ul class="cs-check-list mini-list mt-3">
+          <li>Basic Simulator Setup</li>
+          <li>Basic Vehicle Setup</li>
+          <li>Different Simulated Racing Cars</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03-07 TOPICS (5-COL GRID) -->
+  <section class="course-section" style="background:#f8f9fc; padding:40px; border-radius:12px; margin-top:20px;">
+    <div class="grid-5-col">
+      <!-- 03 -->
+      <div class="light-card" style="display:flex; flex-direction:column; padding:15px; border-top:3px solid #e53e3e;">
+        <h3 class="cs-header" style="font-size:11px; margin-bottom:5px;"><span class="cs-num" style="background:#e53e3e; color:#fff; width:20px; height:20px; font-size:10px;">03</span> CAR CONTROL</h3>
+        <h4 class="navy-text mb-3" style="font-size:15px; line-height:1.2; min-height:40px;">Learn to Read the Track</h4>
+        <ul class="cs-check-list mini-list" style="flex:1;">
+          <li>Track Familiarisation</li>
+          <li>Racing Lines</li>
+          <li>Corner Entry, Apex & Exit</li>
+          <li>Progressive & Threshold Braking</li>
+          <li>Throttle & Steering Technique</li>
+          <li>Sector Analysis</li>
+        </ul>
+      </div>
+      <!-- 04 -->
+      <div class="light-card" style="display:flex; flex-direction:column; padding:15px; border-top:3px solid #e53e3e;">
+        <h3 class="cs-header" style="font-size:11px; margin-bottom:5px;"><span class="cs-num" style="background:#e53e3e; color:#fff; width:20px; height:20px; font-size:10px;">04</span> LAP TIME COACHING</h3>
+        <h4 class="navy-text mb-3" style="font-size:15px; line-height:1.2; min-height:40px;">Turn Practice Into Performance</h4>
+        <ul class="cs-check-list mini-list" style="flex:1;">
+          <li>Consistent Lap Practice</li>
+          <li>Sector-by-Sector Improvement</li>
+          <li>Identifying Time Loss</li>
+          <li>Optimising Braking Points</li>
+          <li>Qualifying-Style Sessions</li>
+          <li>Race-Pace Practice</li>
+        </ul>
+      </div>
+      <!-- 05 -->
+      <div class="light-card" style="display:flex; flex-direction:column; padding:15px; border-top:3px solid #e53e3e;">
+        <h3 class="cs-header" style="font-size:11px; margin-bottom:5px;"><span class="cs-num" style="background:#e53e3e; color:#fff; width:20px; height:20px; font-size:10px;">05</span> DRIFTING & CONTROL</h3>
+        <h4 class="navy-text mb-3" style="font-size:15px; line-height:1.2; min-height:40px;">Understand the Car at the Limit</h4>
+        <ul class="cs-check-list mini-list" style="flex:1;">
+          <li>Oversteer & Understeer</li>
+          <li>Weight Transfer</li>
+          <li>Counter-Steering</li>
+          <li>Initiating & Maintaining a Drift</li>
+          <li>Linking Simulated Corners</li>
+        </ul>
+      </div>
+      <!-- 06 -->
+      <div class="light-card" style="display:flex; flex-direction:column; padding:15px; border-top:3px solid #e53e3e;">
+        <h3 class="cs-header" style="font-size:11px; margin-bottom:5px;"><span class="cs-num" style="background:#e53e3e; color:#fff; width:20px; height:20px; font-size:10px;">06</span> F1 SIM RACING</h3>
+        <h4 class="navy-text mb-3" style="font-size:15px; line-height:1.2; min-height:40px;">Precision. Speed. Consistency.</h4>
+        <ul class="cs-check-list mini-list" style="flex:1;">
+          <li>High-Performance F1 Cars</li>
+          <li>Precision Braking</li>
+          <li>High-Speed Cornering</li>
+          <li>Paddle Gear Changes</li>
+          <li>Acceleration & Traction</li>
+          <li>Circuit Strategy Concepts</li>
+        </ul>
+      </div>
+      <!-- 07 -->
+      <div class="light-card" style="display:flex; flex-direction:column; padding:15px; border-top:3px solid #e53e3e;">
+        <h3 class="cs-header" style="font-size:11px; margin-bottom:5px;"><span class="cs-num" style="background:#e53e3e; color:#fff; width:20px; height:20px; font-size:10px;">07</span> GT SIM RACING</h3>
+        <h4 class="navy-text mb-3" style="font-size:15px; line-height:1.2; min-height:40px;">Master Weight, Grip & Consistency</h4>
+        <ul class="cs-check-list mini-list" style="flex:1;">
+          <li>Vehicle Weight & Balance</li>
+          <li>Traction Management</li>
+          <li>Smooth Driving</li>
+          <li>Longer Race Sessions</li>
+          <li>Tyre & Fuel Concepts</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  
+  <!-- 08 RACECRAFT -->
+  <section class="course-section mt-5">
+    <h3 class="cs-header"><span class="cs-num">08</span> RACECRAFT & COMPETITIVE SIMULATION</h3>
+    <h2 class="cs-title">Learn to Race, Not Just Drive</h2>
+    <p>This section takes the student beyond individual lap performance and into the dynamics of racing with others.</p>
+    
+    <div class="grid-3-col mt-4">
+      <div class="mini-card" style="border-left: 3px solid #e53e3e;">
+        <h4 class="navy-text mb-2">Race Preparation</h4>
+        <ul class="cs-list" style="font-size:12px; color:#64748b; padding-left:15px;">
+          <li>Starting Procedures</li>
+          <li>Practice & Qualifying Sessions</li>
+          <li>Grid Starts</li>
+        </ul>
+      </div>
+      <div class="mini-card" style="border-left: 3px solid #e53e3e;">
+        <h4 class="navy-text mb-2">Racing</h4>
+        <ul class="cs-list" style="font-size:12px; color:#64748b; padding-left:15px;">
+          <li>Overtaking Techniques</li>
+          <li>Defensive Racecraft</li>
+          <li>Racing Etiquette</li>
+          <li>Flag & Track-Signal Awareness</li>
+        </ul>
+      </div>
+      <div class="mini-card" style="border-left: 3px solid #e53e3e;">
+        <h4 class="navy-text mb-2">Performance & Consistency</h4>
+        <ul class="cs-list" style="font-size:12px; color:#64748b; padding-left:15px;">
+          <li>Pit-Lane & Simulated Pit Stops</li>
+          <li>Multi-Lap Races</li>
+          <li>Maintaining Concentration</li>
+          <li>Analysing Performance</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 LEARNING JOURNEY -->
+  <section class="course-section" style="padding-top:40px; padding-bottom:40px;">
+    <div style="display:flex; align-items:center; gap:20px; justify-content:center; flex-wrap:wrap;">
+      <h3 class="cs-header" style="margin:0;"><span class="cs-num">09</span> LEARNING JOURNEY</h3>
+      <div class="navy-text" style="font-size:20px; font-weight:800; letter-spacing:1px; text-align:center;">YOUR SIM RACING JOURNEY</div>
+    </div>
+    
+    <div class="tl-horizontal mt-5" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+      <!-- Row 1 -->
+      <div class="tl-step-col">
+        <div style="background:#e53e3e; color:#fff; width:24px; height:24px; border-radius:50%; font-size:12px; font-weight:bold; display:flex; align-items:center; justify-content:center; margin-bottom:10px;">01</div>
+        <h4 class="navy-text">Simulator Familiarisation</h4>
+        <p style="font-size:12px; color:#64748b;">Understand the simulator, controls and driving position.</p>
+      </div>
+      <div class="tl-step-col">
+        <div style="background:#e53e3e; color:#fff; width:24px; height:24px; border-radius:50%; font-size:12px; font-weight:bold; display:flex; align-items:center; justify-content:center; margin-bottom:10px;">02</div>
+        <h4 class="navy-text">Car Control</h4>
+        <p style="font-size:12px; color:#64748b;">Develop steering, braking, throttle and gear-control skills.</p>
+      </div>
+      <div class="tl-step-col">
+        <div style="background:#e53e3e; color:#fff; width:24px; height:24px; border-radius:50%; font-size:12px; font-weight:bold; display:flex; align-items:center; justify-content:center; margin-bottom:10px;">03</div>
+        <h4 class="navy-text">Track Familiarisation</h4>
+        <p style="font-size:12px; color:#64748b;">Learn track layouts, racing lines, braking points and cornering.</p>
+      </div>
+      <div class="tl-step-col">
+        <div style="background:#e53e3e; color:#fff; width:24px; height:24px; border-radius:50%; font-size:12px; font-weight:bold; display:flex; align-items:center; justify-content:center; margin-bottom:10px;">04</div>
+        <h4 class="navy-text">Lap Training</h4>
+        <p style="font-size:12px; color:#64748b;">Build consistency and improve lap times through structured practice.</p>
+      </div>
+      <!-- Row 2 -->
+      <div class="tl-step-col">
+        <div style="background:#e53e3e; color:#fff; width:24px; height:24px; border-radius:50%; font-size:12px; font-weight:bold; display:flex; align-items:center; justify-content:center; margin-bottom:10px;">05</div>
+        <h4 class="navy-text">F1 & GT Driving</h4>
+        <p style="font-size:12px; color:#64748b;">Experience different racing-car characteristics and driving techniques.</p>
+      </div>
+      <div class="tl-step-col">
+        <div style="background:#e53e3e; color:#fff; width:24px; height:24px; border-radius:50%; font-size:12px; font-weight:bold; display:flex; align-items:center; justify-content:center; margin-bottom:10px;">06</div>
+        <h4 class="navy-text">Drifting</h4>
+        <p style="font-size:12px; color:#64748b;">Explore advanced car-control concepts like oversteer and drifting.</p>
+      </div>
+      <div class="tl-step-col">
+        <div style="background:#e53e3e; color:#fff; width:24px; height:24px; border-radius:50%; font-size:12px; font-weight:bold; display:flex; align-items:center; justify-content:center; margin-bottom:10px;">07</div>
+        <h4 class="navy-text">Racecraft</h4>
+        <p style="font-size:12px; color:#64748b;">Develop overtaking, defensive driving, qualifying and race procedures.</p>
+      </div>
+      <div class="tl-step-col">
+        <div style="background:#e53e3e; color:#fff; width:24px; height:24px; border-radius:50%; font-size:12px; font-weight:bold; display:flex; align-items:center; justify-content:center; margin-bottom:10px;">08</div>
+        <h4 class="navy-text">Performance Improvement</h4>
+        <p style="font-size:12px; color:#64748b;">Analyse sessions and work towards greater consistency and better performance.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 F1 VS GT -->
+  <section class="course-section">
+    <h3 class="cs-header"><span class="cs-num">10</span> F1 VS GT</h3>
+    <h2 class="cs-title">TWO WORLDS OF RACING</h2>
+    
+    <div class="flex-responsive-row mt-4">
+      <div class="light-card" style="flex:1; border-top: 3px solid #1e3a8a;">
+        <h3 class="navy-text mb-2" style="font-size:22px;">🏎️ F1 SIM RACING</h3>
+        <p style="font-size:14px; font-weight:600; color:#e53e3e;">Precision • Speed • High Performance</p>
+        <ul class="cs-check-list mini-list mt-3">
+          <li>F1-style cars</li>
+          <li>Precision braking</li>
+          <li>High-speed cornering</li>
+          <li>Racing lines</li>
+          <li>Paddle gear changes</li>
+          <li>Acceleration & traction management</li>
+          <li>Qualifying & Race starts</li>
+          <li>Racecraft</li>
+        </ul>
+      </div>
+      <div class="light-card" style="flex:1; border-top: 3px solid #1e3a8a;">
+        <h3 class="navy-text mb-2" style="font-size:22px;">🏁 GT SIM RACING</h3>
+        <p style="font-size:14px; font-weight:600; color:#e53e3e;">Balance • Control • Consistency</p>
+        <ul class="cs-check-list mini-list mt-3">
+          <li>Vehicle weight & balance</li>
+          <li>Braking & Cornering</li>
+          <li>Traction management</li>
+          <li>Smooth driving</li>
+          <li>Consistent lap times</li>
+          <li>Overtaking & Defensive driving</li>
+          <li>Longer race sessions</li>
+          <li>Tyre / fuel / pit strategy concepts</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  
+  <!-- 11 PERFORMANCE COACHING -->
+  <section class="course-section mt-5 p-5" style="background:var(--navy); color:#fff; border-radius:12px;">
+    <h3 class="cs-header" style="color:#cbd5e1; border-bottom-color: rgba(255,255,255,0.2);"><span class="cs-num" style="background:rgba(255,255,255,0.1); color:#fff;">11</span> PERFORMANCE COACHING</h3>
+    <h2 class="cs-title" style="color:#fff;">Every Lap Has Something to Teach</h2>
+    <p style="color:#cbd5e1;">Students learn to look beyond the final lap time and understand where time is gained or lost around the circuit.</p>
+    
+    <div class="grid-4-col mt-5">
+      <div style="text-align:center;">
+        <h3 style="color:#e53e3e; font-size:24px; margin-bottom:10px;">ANALYSE</h3>
+        <p style="font-size:14px; color:#f8f9fc;">Identify areas where performance can improve.</p>
+      </div>
+      <div style="text-align:center;">
+        <h3 style="color:#e53e3e; font-size:24px; margin-bottom:10px;">REFINE</h3>
+        <p style="font-size:14px; color:#f8f9fc;">Work on braking points, corner entry, exit and driving inputs.</p>
+      </div>
+      <div style="text-align:center;">
+        <h3 style="color:#e53e3e; font-size:24px; margin-bottom:10px;">REPEAT</h3>
+        <p style="font-size:14px; color:#f8f9fc;">Practice consistently to build repeatable performance.</p>
+      </div>
+      <div style="text-align:center;">
+        <h3 style="color:#e53e3e; font-size:24px; margin-bottom:10px;">IMPROVE</h3>
+        <p style="font-size:14px; color:#f8f9fc;">Compare lap performance and work towards better results.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12 SKILLS DEVELOPED -->
+  <section class="course-section mt-5">
+    <h3 class="cs-header"><span class="cs-num">12</span> WHAT STUDENTS DEVELOP</h3>
+    <h2 class="cs-title">SKILLS BEYOND THE LAP TIME</h2>
+    <div class="grid-3-col mt-4">
+      <div style="display:flex; align-items:flex-start; gap:15px;">
+        <div style="font-size:24px;">🎮</div>
+        <div>
+          <h4 class="navy-text mb-1" style="font-size:15px;">Car Control</h4>
+          <p style="margin:0; font-size:12px; color:#64748b;">Develop precise steering, braking, throttle and gear-control skills.</p>
+        </div>
+      </div>
+      <div style="display:flex; align-items:flex-start; gap:15px;">
+        <div style="font-size:24px;">🧠</div>
+        <div>
+          <h4 class="navy-text mb-1" style="font-size:15px;">Track Awareness</h4>
+          <p style="margin:0; font-size:12px; color:#64748b;">Understand layouts, racing lines, apexes, braking points and track limits.</p>
+        </div>
+      </div>
+      <div style="display:flex; align-items:flex-start; gap:15px;">
+        <div style="font-size:24px;">📊</div>
+        <div>
+          <h4 class="navy-text mb-1" style="font-size:15px;">Performance Analysis</h4>
+          <p style="margin:0; font-size:12px; color:#64748b;">Learn to identify time loss and compare lap performance.</p>
+        </div>
+      </div>
+      <div style="display:flex; align-items:flex-start; gap:15px;">
+        <div style="font-size:24px;">🏁</div>
+        <div>
+          <h4 class="navy-text mb-1" style="font-size:15px;">Racecraft</h4>
+          <p style="margin:0; font-size:12px; color:#64748b;">Develop awareness of overtaking, defensive driving and race procedures.</p>
+        </div>
+      </div>
+      <div style="display:flex; align-items:flex-start; gap:15px;">
+        <div style="font-size:24px;">🎯</div>
+        <div>
+          <h4 class="navy-text mb-1" style="font-size:15px;">Consistency</h4>
+          <p style="margin:0; font-size:12px; color:#64748b;">Build the ability to maintain controlled and repeatable performance.</p>
+        </div>
+      </div>
+      <div style="display:flex; align-items:flex-start; gap:15px;">
+        <div style="font-size:24px;">⚡</div>
+        <div>
+          <h4 class="navy-text mb-1" style="font-size:15px;">Advanced Control</h4>
+          <p style="margin:0; font-size:12px; color:#64748b;">Explore oversteer, understeer, weight transfer, and drifting.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- 13 RACING SKILLS -->
+  <section class="course-section mt-5" style="background:#f8f9fc; padding:40px; border-radius:12px;">
+    <h3 class="cs-header"><span class="cs-num">13</span> RACING SKILLS</h3>
+    <h2 class="cs-title">MASTER THE FUNDAMENTALS</h2>
+    <div class="grid-3-col mt-4">
+      <div class="mini-card">
+        <h4 class="navy-text mb-1" style="font-size:15px; color:#e53e3e;">BRAKING</h4>
+        <p style="margin:0; font-size:12px; color:#64748b;">Understand braking points and develop progressive and threshold braking.</p>
+      </div>
+      <div class="mini-card">
+        <h4 class="navy-text mb-1" style="font-size:15px; color:#e53e3e;">CORNERING</h4>
+        <p style="margin:0; font-size:12px; color:#64748b;">Learn corner entry, apex, exit and racing-line concepts.</p>
+      </div>
+      <div class="mini-card">
+        <h4 class="navy-text mb-1" style="font-size:15px; color:#e53e3e;">THROTTLE</h4>
+        <p style="margin:0; font-size:12px; color:#64748b;">Develop smooth and controlled throttle inputs.</p>
+      </div>
+      <div class="mini-card">
+        <h4 class="navy-text mb-1" style="font-size:15px; color:#e53e3e;">STEERING</h4>
+        <p style="margin:0; font-size:12px; color:#64748b;">Improve steering technique and precision.</p>
+      </div>
+      <div class="mini-card">
+        <h4 class="navy-text mb-1" style="font-size:15px; color:#e53e3e;">RACING LINE</h4>
+        <p style="margin:0; font-size:12px; color:#64748b;">Understand how the ideal line changes through different corners.</p>
+      </div>
+      <div class="mini-card">
+        <h4 class="navy-text mb-1" style="font-size:15px; color:#e53e3e;">RACECRAFT</h4>
+        <p style="margin:0; font-size:12px; color:#64748b;">Learn overtaking, defensive driving and race etiquette.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14 WHO IS THIS FOR -->
+  <section class="course-section mt-5">
+    <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:30px; flex-wrap:wrap; gap:20px;">
+      <div>
+        <h3 class="cs-header"><span class="cs-num">14</span> WHO IS THIS PROGRAM FOR?</h3>
+        <h2 class="cs-title">For Young Motorsport Enthusiasts</h2>
+        <p style="font-size:13px; color:#64748b;">This program is designed for young aspirants interested in:</p>
+      </div>
+      <div class="course-hero-age navy-text" style="background:#fff; padding:10px 15px; border-radius:8px; border:1px solid #e2e8f0; display:flex; align-items:center; gap:8px;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e53e3e" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        <strong style="font-size:13px;">Recommended Age: 12+</strong>
+      </div>
+    </div>
+    
+    <div class="icon-grid-7" style="justify-content: center; gap: 30px;">
+      <div style="text-align:center;"><div style="font-weight:700; color:var(--navy);">F1 & GT Racing</div></div>
+      <div style="text-align:center;"><div style="font-weight:700; color:var(--navy);">Sim Racing</div></div>
+      <div style="text-align:center;"><div style="font-weight:700; color:var(--navy);">Motorsport</div></div>
+      <div style="text-align:center;"><div style="font-weight:700; color:var(--navy);">Vehicle Dynamics</div></div>
+    </div>
+    
+    <p style="font-size:11px; color:#64748b; margin-top:25px; line-height:1.5; text-align: center;">Students can progressively advance according to their age, experience, skill level and learning progress.</p>
+  </section>
+
+  <!-- 15 COURSE MODULES (GRID) -->
+  <section class="course-section mt-5">
+    <h3 class="cs-header"><span class="cs-num">15</span> COURSE MODULES</h3>
+    <div class="grid-4-col mt-4">
+      <div class="mini-card" style="border-top:2px solid #e53e3e;">
+        <h4 class="navy-text" style="font-size:14px; margin-bottom:10px;"><span style="color:#e53e3e;">01</span> Simulator Familiarisation</h4>
+        <ul class="cs-list" style="font-size:11px; padding-left:15px; color:#64748b; margin:0;">
+          <li>F1 & GT Simulators</li>
+          <li>Steering & Force Feedback</li>
+          <li>Pedals & Gear Controls</li>
+        </ul>
+      </div>
+      <div class="mini-card" style="border-top:2px solid #e53e3e;">
+        <h4 class="navy-text" style="font-size:14px; margin-bottom:10px;"><span style="color:#e53e3e;">02</span> Car Control</h4>
+        <ul class="cs-list" style="font-size:11px; padding-left:15px; color:#64748b; margin:0;">
+          <li>Steering & Braking</li>
+          <li>Throttle & Gear Selection</li>
+        </ul>
+      </div>
+      <div class="mini-card" style="border-top:2px solid #e53e3e;">
+        <h4 class="navy-text" style="font-size:14px; margin-bottom:10px;"><span style="color:#e53e3e;">03</span> Track Training</h4>
+        <ul class="cs-list" style="font-size:11px; padding-left:15px; color:#64748b; margin:0;">
+          <li>Track Layout & Racing Lines</li>
+          <li>Braking Points & Cornering</li>
+        </ul>
+      </div>
+      <div class="mini-card" style="border-top:2px solid #e53e3e;">
+        <h4 class="navy-text" style="font-size:14px; margin-bottom:10px;"><span style="color:#e53e3e;">04</span> Performance Coaching</h4>
+        <ul class="cs-list" style="font-size:11px; padding-left:15px; color:#64748b; margin:0;">
+          <li>Lap Times & Sector Analysis</li>
+          <li>Time Loss & Lap Comparison</li>
+        </ul>
+      </div>
+      <div class="mini-card" style="border-top:2px solid #e53e3e;">
+        <h4 class="navy-text" style="font-size:14px; margin-bottom:10px;"><span style="color:#e53e3e;">05</span> Advanced Car Control</h4>
+        <ul class="cs-list" style="font-size:11px; padding-left:15px; color:#64748b; margin:0;">
+          <li>Oversteer & Understeer</li>
+          <li>Weight Transfer & Drifting</li>
+        </ul>
+      </div>
+      <div class="mini-card" style="border-top:2px solid #e53e3e;">
+        <h4 class="navy-text" style="font-size:14px; margin-bottom:10px;"><span style="color:#e53e3e;">06</span> F1 Sim Racing</h4>
+        <ul class="cs-list" style="font-size:11px; padding-left:15px; color:#64748b; margin:0;">
+          <li>F1 Driving</li>
+          <li>Qualifying & Race Starts</li>
+        </ul>
+      </div>
+      <div class="mini-card" style="border-top:2px solid #e53e3e;">
+        <h4 class="navy-text" style="font-size:14px; margin-bottom:10px;"><span style="color:#e53e3e;">07</span> GT Sim Racing</h4>
+        <ul class="cs-list" style="font-size:11px; padding-left:15px; color:#64748b; margin:0;">
+          <li>Vehicle Balance & Traction</li>
+          <li>Cornering & Race Sessions</li>
+        </ul>
+      </div>
+      <div class="mini-card" style="border-top:2px solid #e53e3e;">
+        <h4 class="navy-text" style="font-size:14px; margin-bottom:10px;"><span style="color:#e53e3e;">08</span> Racecraft</h4>
+        <ul class="cs-list" style="font-size:11px; padding-left:15px; color:#64748b; margin:0;">
+          <li>Overtaking & Defensive Driving</li>
+          <li>Race Procedures & Pit Stops</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  
+  <!-- 16 FEATURE SECTION -->
+  <section class="course-section mt-5 p-5" style="background:#f8f9fc; border:1px solid #e2e8f0; border-radius:12px; text-align:center;">
+    <h2 class="navy-text" style="font-size:28px; font-weight:800; letter-spacing:1px;">FOCUS. PRACTICE. PERFORM.</h2>
+    <p style="font-size:14px; color:#64748b; max-width:600px; margin:15px auto 30px;">Great racing isn't just about going fast. It's about understanding the car, reading the circuit, making precise inputs and learning from every lap.</p>
+    
+    <div class="grid-3-col">
+      <div style="background:#fff; padding:20px; border-radius:8px; border:1px solid #e2e8f0;">
+        <h3 style="color:#e53e3e; font-size:20px;">FOCUS</h3>
+        <p style="font-size:13px; color:#64748b; margin-top:10px;">Understand the car and the circuit.</p>
+      </div>
+      <div style="background:#fff; padding:20px; border-radius:8px; border:1px solid #e2e8f0;">
+        <h3 style="color:#e53e3e; font-size:20px;">PRACTICE</h3>
+        <p style="font-size:13px; color:#64748b; margin-top:10px;">Build consistency through structured sessions.</p>
+      </div>
+      <div style="background:#fff; padding:20px; border-radius:8px; border:1px solid #e2e8f0;">
+        <h3 style="color:#e53e3e; font-size:20px;">PERFORM</h3>
+        <p style="font-size:13px; color:#64748b; margin-top:10px;">Apply your skills in qualifying and race situations.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 17 CTA -->
+  <section class="bottom-cta mt-5">
+    <div class="cta-inner">
+      <div class="cta-left">
+        <h2><span class="red-text">17</span> READY TO HIT THE TRACK?</h2>
+        <p>Step into the world of F1 and GT simulation and start developing your racing skills.</p>
+      </div>
+      <div class="cta-right">
+        <a href="/contact" class="btn-primary">ENQUIRE NOW &rarr;</a>
+        <a href="/courses" class="btn-outline-white">EXPLORE ALL PROGRAMS &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER PLACEHOLDER -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-contact">
+        <h4>CONTACT US</h4>
+        <div class="contact-row">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+          <span>Bus Station, 85, Kengal Hanumanthaiah Rd, opp. Shanthi Nagar, Sudhama Nagar, Bengaluru - 560027</span>
+        </div>
+        <div class="contact-row">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.56a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+          </svg>
+          <span>+91 95355 45654</span>
+        </div>
+        <div class="contact-row">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <polyline points="22,6 12,13 2,6" />
+          </svg>
+          <span>info@havocefs.com</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Havoc Early Fun School. All rights reserved.</p>
+      <div class="footer-legal-links" style="margin-top: 10px; display: flex; justify-content: center; gap: 20px;">
+        <a href="/privacy-policy" style="color: rgba(255,255,255,0.7); text-decoration: none; font-size: 13px;">Privacy Policy</a>
+        <a href="/disclaimer" style="color: rgba(255,255,255,0.7); text-decoration: none; font-size: 13px;">Disclaimer</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
