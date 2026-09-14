@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
       
       const formData = new URLSearchParams(new FormData(contactForm));
       
-      fetch(scriptURL, { method: 'POST', body: formData })
+      fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors' })
         .then(response => {
           btnText.textContent = 'Submit Enquiry';
           spinner.style.display = 'none';
