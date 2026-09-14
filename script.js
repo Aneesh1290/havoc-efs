@@ -59,4 +59,59 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(el);
   });
 
+  // Contact Form Submission (Google Apps Script)
+  const contactForm = document.getElementById('enquiry-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      
+      const scriptURL = ''; // User will provide this URL
+      const submitBtn = document.getElementById('submit-btn');
+      const btnText = submitBtn.querySelector('.btn-text');
+      const spinner = submitBtn.querySelector('.spinner');
+      const formMessage = document.getElementById('form-message');
+      
+      if (!scriptURL) {
+        // Placeholder behavior until URL is provided
+        btnText.style.display = 'none';
+        spinner.style.display = 'inline-block';
+        submitBtn.disabled = true;
+        
+        setTimeout(() => {
+          btnText.style.display = 'inline';
+          spinner.style.display = 'none';
+          submitBtn.disabled = false;
+          contactForm.reset();
+          formMessage.style.color = '#27ae60';
+          formMessage.textContent = "Thank you! Your message has been sent (Test Mode).";
+        }, 1000);
+        return;
+      }
+      
+      // Actual submission
+      btnText.style.display = 'none';
+      spinner.style.display = 'inline-block';
+      submitBtn.disabled = true;
+      formMessage.textContent = '';
+      
+      fetch(scriptURL, { method: 'POST', body: new FormData(contactForm)})
+        .then(response => {
+          btnText.style.display = 'inline';
+          spinner.style.display = 'none';
+          submitBtn.disabled = false;
+          contactForm.reset();
+          formMessage.style.color = '#27ae60';
+          formMessage.textContent = "Thank you! Your message has been sent successfully.";
+        })
+        .catch(error => {
+          btnText.style.display = 'inline';
+          spinner.style.display = 'none';
+          submitBtn.disabled = false;
+          formMessage.style.color = 'var(--red)';
+          formMessage.textContent = "Oops! Something went wrong. Please try again.";
+          console.error('Error!', error.message);
+        });
+    });
+  }
+
 });
