@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     contactForm.addEventListener('submit', function (e) {
       e.preventDefault();
       
-      const scriptURL = ''; // User will provide this URL
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbzQc4cMmNRjF0-yOPe7HB57cDinGfyVYogzm0zHtG-dUK2HKUnnm-9y-bphHGxCw05ScQ/exec'; // User will provide this URL
       const submitBtn = document.getElementById('submit-btn');
       const btnText = submitBtn.querySelector('.btn-text');
       const spinner = submitBtn.querySelector('.spinner');
