@@ -1770,6 +1770,12 @@ html[data-darkreader-scheme="dark"] .nav-logo-img {
     grid-template-columns: 1fr;
     gap: 40px;
   }
+  .contact-info {
+    order: 2;
+  }
+  .contact-form-card {
+    order: 1;
+  }
   .contact-heading { font-size: 44px; }
   .contact-map-section { height: 300px; }
   .contact-map-boy { right: 10px; height: 80%; }
