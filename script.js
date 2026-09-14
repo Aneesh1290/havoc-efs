@@ -68,19 +68,15 @@ document.addEventListener('DOMContentLoaded', () => {
       const scriptURL = 'https://script.google.com/macros/s/AKfycbzQc4cMmNRjF0-yOPe7HB57cDinGfyVYogzm0zHtG-dUK2HKUnnm-9y-bphHGxCw05ScQ/exec'; // User will provide this URL
       const submitBtn = document.getElementById('submit-btn');
       const btnText = submitBtn.querySelector('.btn-text');
-      const spinner = submitBtn.querySelector('.spinner');
       const formMessage = document.getElementById('form-message');
       
       if (!scriptURL) {
         // Placeholder behavior until URL is provided
-        btnText.style.display = 'none';
-        spinner.style.display = 'inline-block';
         submitBtn.disabled = true;
         
         setTimeout(() => {
           btnText.textContent = '✓ Submitted! (Test)';
           submitBtn.style.background = '#27ae60';
-          spinner.style.display = 'none';
           contactForm.reset();
           
           setTimeout(() => {
@@ -94,7 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
       
       // Actual submission
       btnText.textContent = 'Sending...';
-      spinner.style.display = 'inline-block';
       submitBtn.disabled = true;
       formMessage.textContent = '';
       
@@ -104,7 +99,6 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(response => {
           btnText.textContent = '✓ Submitted!';
           submitBtn.style.background = '#27ae60';
-          spinner.style.display = 'none';
           contactForm.reset();
           
           setTimeout(() => {
@@ -115,7 +109,6 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(error => {
           btnText.textContent = 'Submit Enquiry';
-          spinner.style.display = 'none';
           submitBtn.disabled = false;
           formMessage.style.color = 'var(--red)';
           formMessage.textContent = "Oops! Something went wrong. Please try again.";
