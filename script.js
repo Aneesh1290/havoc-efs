@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       
       // Actual submission
-      btnText.style.display = 'none';
+      btnText.textContent = 'Sending...';
       spinner.style.display = 'inline-block';
       submitBtn.disabled = true;
       formMessage.textContent = '';
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
       
       fetch(scriptURL, { method: 'POST', body: formData })
         .then(response => {
-          btnText.style.display = 'inline';
+          btnText.textContent = 'Submit Enquiry';
           spinner.style.display = 'none';
           submitBtn.disabled = false;
           contactForm.reset();
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
           formMessage.textContent = "Thank you! Your message has been sent successfully.";
         })
         .catch(error => {
-          btnText.style.display = 'inline';
+          btnText.textContent = 'Submit Enquiry';
           spinner.style.display = 'none';
           submitBtn.disabled = false;
           formMessage.style.color = 'var(--red)';
