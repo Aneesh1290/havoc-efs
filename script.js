@@ -94,7 +94,9 @@ document.addEventListener('DOMContentLoaded', () => {
       submitBtn.disabled = true;
       formMessage.textContent = '';
       
-      fetch(scriptURL, { method: 'POST', body: new FormData(contactForm)})
+      const formData = new URLSearchParams(new FormData(contactForm));
+      
+      fetch(scriptURL, { method: 'POST', body: formData })
         .then(response => {
           btnText.style.display = 'inline';
           spinner.style.display = 'none';
