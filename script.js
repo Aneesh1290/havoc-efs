@@ -78,12 +78,16 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.disabled = true;
         
         setTimeout(() => {
-          btnText.style.display = 'inline';
+          btnText.textContent = '✓ Submitted! (Test)';
+          submitBtn.style.background = '#27ae60';
           spinner.style.display = 'none';
-          submitBtn.disabled = false;
           contactForm.reset();
-          formMessage.style.color = '#27ae60';
-          formMessage.textContent = "Thank you! Your message has been sent (Test Mode).";
+          
+          setTimeout(() => {
+            btnText.textContent = 'Submit Enquiry';
+            submitBtn.style.background = '';
+            submitBtn.disabled = false;
+          }, 3000);
         }, 1000);
         return;
       }
@@ -98,12 +102,16 @@ document.addEventListener('DOMContentLoaded', () => {
       
       fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors' })
         .then(response => {
-          btnText.textContent = 'Submit Enquiry';
+          btnText.textContent = '✓ Submitted!';
+          submitBtn.style.background = '#27ae60';
           spinner.style.display = 'none';
-          submitBtn.disabled = false;
           contactForm.reset();
-          formMessage.style.color = '#27ae60';
-          formMessage.textContent = "Thank you! Your message has been sent successfully.";
+          
+          setTimeout(() => {
+            btnText.textContent = 'Submit Enquiry';
+            submitBtn.style.background = '';
+            submitBtn.disabled = false;
+          }, 3000);
         })
         .catch(error => {
           btnText.textContent = 'Submit Enquiry';
