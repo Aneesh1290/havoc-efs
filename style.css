@@ -111,8 +111,8 @@ body {
   font-weight: 700;
   color: var(--navy);
   letter-spacing: 0.5px;
-  margin-top: -42px; /* Pull it up into the transparent space of the logo */
-  margin-left: 80px; /* Shift it right to center under the text portion of the logo */
+  margin-top: -48px;
+  margin-left: 140px;
   text-transform: uppercase;
   opacity: 0.9;
   z-index: 10;
