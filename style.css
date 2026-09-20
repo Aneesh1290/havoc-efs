@@ -106,7 +106,7 @@ body {
   width: auto;
   display: block;
   object-fit: contain;
-  margin-left: -72px;
+  margin-left: -90px;
 }
 
 .nav-logo-group {
@@ -191,6 +191,24 @@ html[data-darkreader-scheme="dark"] .nav-logo-img {
   text-decoration: none;
   margin-left: 10px;
   transition: background 0.2s, transform 0.15s;
+}
+
+@media (max-width: 768px) {
+  .nav-right {
+    position: absolute;
+    right: 24px;
+  }
+
+  .nav-logo-img {
+    max-height: 110px !important;
+  }
+
+  .btn-login {
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+    padding: 6px 10px !important;
+    font-size: 11px !important;
+  }
 }
 
 .btn-login:hover {
@@ -1355,13 +1373,38 @@ transform 0.15s;
 @media (max-width: 768px) {
   .nav-inner {
     min-height: 80px;
-    justify-content: space-between;
+    justify-content: center;
     position: relative;
   }
 
+  .nav-logo {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
   .nav-logo-img {
-    height: 100px;
-    margin-left: 0;
+    height: auto;
+    max-height: 100px;
+    max-width: 65vw;
+    margin-left: 0 !important;
+  }
+
+  .nav-right {
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-links {
+    display: none !important;
+  }
+
+  .nav-links.show {
+    display: flex !important;
   }
 
   .mobile-menu-btn {
@@ -1398,10 +1441,28 @@ transform 0.15s;
   }
 
   .btn-login {
-    position: absolute;
-    right: 16px;
+    position: static;
+    right: auto;
     padding: 6px 12px;
     font-size: 11px;
+  }
+
+  @media (max-width: 768px) {
+    .nav-right {
+      position: absolute;
+      right: 24px;
+    }
+
+    .nav-logo-img {
+      max-height: 110px !important;
+    }
+
+    .btn-login {
+      margin-left: 5px !important;
+      margin-right: 5px !important;
+      padding: 6px 10px !important;
+      font-size: 11px !important;
+    }
   }
 
   /* Hero - mobile: text on top with white bg, image shows below */
@@ -1853,6 +1914,15 @@ transform 0.15s;
 }
 
 @media (max-width: 768px) {
+  .nav-right {
+    position: absolute;
+    right: 24px;
+  }
+
+  .nav-logo-img {
+    max-height: 110px !important;
+  }
+
   .courses-title {
     font-size: 36px;
   }
@@ -2441,5 +2511,49 @@ transform 0.15s;
 
   .pillar-img-wrap {
     height: 180px;
+  }
+}
+
+/* ======= FLOATING BOOK DEMO BUTTON ======= */
+.floating-demo-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  background-color: var(--red);
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(192, 57, 43, 0.4);
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.floating-demo-btn:hover {
+  background-color: var(--navy);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(26, 42, 94, 0.4);
+}
+
+@media (max-width: 768px) {
+  .nav-right {
+    position: absolute;
+    right: 24px;
+  }
+
+  .nav-logo-img {
+    max-height: 110px !important;
+  }
+
+  .floating-demo-btn {
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 24px;
+    font-size: 13px;
   }
 }
